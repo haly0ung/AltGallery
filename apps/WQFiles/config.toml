@@ -1,0 +1,38 @@
+# altgen config for the WQFiles AltStore source.
+# Run: uvx altgen -c config.toml
+# WQFiles: file browser, app data manager and cache cleaner for iOS (worse_query, no jailbreak)
+
+[github]
+repo = "kolbicz/WQFiles"
+
+[source]
+name = "WQFiles"
+subtitle = "WQFiles AltStore source by AltGallery & AltGen"
+description = "Auto-updated AltStore source for WQFiles"
+icon_url = "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/icon.png"
+website = "https://github.com/kolbicz/WQFiles"
+tint_color = "#0D9EA8"
+
+[app]
+name = "WQFiles"
+bundle_identifier = "cz.kolbi.wqfiles"
+developer_name = "kolbicz"
+subtitle = "File browser, app data manager and cache cleaner"
+description = "File browser, app data manager and cache cleaner for iOS 27 (worse_query, no jailbreak)."
+icon_url = "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/icon.png"
+tint_color = "#0D9EA8"
+min_os_version = "26.0"
+
+[versions]
+strip_v_prefix = true
+include_prereleases = false
+# Each release contains: WQFiles.ipa
+asset_pattern = 'WQFiles\.ipa$'
+
+[news]
+title_template = "{name} {version} · {date}"
+# shared promo image rendered by tools/render_news.py
+image_url = "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png"
+
+[output]
+path = "apps.json"
