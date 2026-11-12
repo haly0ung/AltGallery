@@ -1,0 +1,42 @@
+{
+  "name": "Gopeed",
+  "subtitle": "Gopeed AltStore source by AltGallery & AltGen",
+  "description": "Auto-updated AltStore source for Gopeed",
+  "iconURL": "https://gh-proxy.com/https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/icon.png",
+  "website": "https://github.com/GopeedLab/gopeed",
+  "tintColor": "#5DC76C",
+  "apps": [
+    {
+      "name": "Gopeed",
+      "bundleIdentifier": "com.gopeed.gopeed",
+      "developerName": "GopeedLab",
+      "subtitle": "Fast, modern download manager",
+      "localizedDescription": "A fast, modern download manager for HTTP, BitTorrent, Magnet, and ed2k. Cross-platform, built with Golang and Flutter.",
+      "iconURL": "https://gh-proxy.com/https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/icon.png",
+      "tintColor": "#5DC76C",
+      "versions": [
+        {
+          "version": "1.9.3",
+          "date": "2026-03-18",
+          "localizedDescription": "<table>\r\n  <tbody>\r\n    <tr>\r\n      <td rowspan=\"4\">🪟 Windows</td>\r\n      <td rowspan=\"2\"><code>EXE</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>Portable</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-amd64-portable.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-arm64-portable.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"3\">🍎 MacOS</td>\r\n      <td rowspan=\"3\"><code>DMG</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos-amd64.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos-arm64.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"6\">🐧 Linux</td>\r\n      <td><code>Flathub</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://flathub.org/apps/com.gopeed.Gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td><code>SNAP</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://snapcraft.io/gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>DEB</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-amd64.deb\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-arm64.deb\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>AppImage</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-amd64.AppImage\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-arm64.AppImage\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"4\">🤖 Android</td>\r\n      <td rowspan=\"4\"><code>APK</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>armeabi-v7a</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-armeabi-v7a.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64-v8a</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-arm64-v8a.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>x86_64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-x86_64.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>📱 iOS</td>\r\n      <td><code>IPA</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-ios.ipa\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>🐳 Docker</td>\r\n      <td>-</td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://hub.docker.com/r/liwei2633/gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\">💾 Qnap</td>\r\n      <td rowspan=\"2\"><code>QPKG</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-v1.9.3-qnap-amd64.qpkg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-v1.9.3-qnap-arm64.qpkg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"8\">🌐 Web</td>\r\n      <td rowspan=\"3\"><code>Windows</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>386</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-386.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>MacOS</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-macos-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-macos-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"3\"><code>Linux</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>386</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-386.zip\">📥</a></td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n# Release notes\r\n\r\n## 🆕 Features\r\n\r\n- feat: ed2k protocol support (important!!!) @monkeyWie (#1316)\r\n\r\n## 🐛 Bug Fixes\r\n\r\n- fix: non-range HTTP downloaded bytes exceeding total file size @monkeyWie (#1317)\r\n- fix: update isCreate logic for pending tasks @Roxym3 (#1314)\r\n- fix: update RPM icon path @monkeyWie (#1309)\r\n\r\n## 📖 Document\r\n\r\n- docs: migrate docs.gopeed.com links to gopeed.com/docs equivalents @copilot-swe-agent (#1311)\r\n\r\n## 🌎 Internationalization\r\n\r\n- feat(lang): Catalan language added @kayron8 (#1303)\r\n- feat(lang): update Turkish translation @Hweord (#1304)\r\n\r\n# 更新日志\r\n\r\n## 🆕 新特性\r\n\r\n- feat: ed2k 协议支持 (重大特性！！！) @monkeyWie (#1316)\r\n\r\n## 🐛 Bug Fixes\r\n\r\n- fix: 不支持断点下载的 HTTP 链接下载超出文件总大小 @monkeyWie (#1317)\r\n- fix: 更新 isCreate 逻辑用于等待中的任务 @Roxym3 (#1314)\r\n- fix: 更新 RPM 图标路径 @monkeyWie (#1309)\r\n\r\n## 📖 Document\r\n\r\n- docs: 迁移 docs.gopeed.com 链接至 gopeed.com/docs @copilot-swe-agent (#1311)\r\n\r\n## 🌎 Internationalization\r\n\r\n- feat(lang): 添加加泰罗尼亚语言 @kayron8 (#1303)\r\n- feat(lang): 更新土耳其语言 @Hweord (#1304)",
+          "downloadURL": "https://gh-proxy.com/https://github.com/GopeedLab/gopeed/releases/download/v1.9.3/Gopeed-v1.9.3-ios.ipa",
+          "size": 27488140,
+          "minOSVersion": "13.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.gopeed.gopeed",
+      "title": "Gopeed 1.9.3 · 18 Mar 2026",
+      "identifier": "Gopeed-release-v1.9.3",
+      "caption": "Gopeed 1.9.3 is available.",
+      "date": "2026-03-18T12:54:20Z",
+      "tintColor": "#5DC76C",
+      "imageURL": "https://gh-proxy.com/https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/images/news.png",
+      "notify": true,
+      "url": "https://github.com/GopeedLab/gopeed/releases/tag/v1.9.3"
+    }
+  ]
+}
