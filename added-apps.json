@@ -1,0 +1,102 @@
+{
+  "name": "AltGallery Added",
+  "subtitle": "Apps added to this AltGallery fork",
+  "description": "AltStore source with the apps added to this fork, generated from GitHub Releases",
+  "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/assets/icon.png",
+  "website": "https://github.com/haly0ung/AltGallery",
+  "tintColor": "#3B82F6",
+  "apps": [
+    {
+      "name": "Cloudn",
+      "bundleIdentifier": "com.mengangs.Cloudn",
+      "developerName": "mengangs",
+      "subtitle": "Paste a link, and let it handle the rest",
+      "localizedDescription": "Paste a link and let it handle the rest. Cloud drive shares, short videos, web videos, GitHub, and magnet links — one app to parse, preview, and download fast. Free and open source, no ads, no server; all parsing happens on-device.",
+      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Cloudn/icon.png",
+      "tintColor": "#B4532F",
+      "versions": [
+        {
+          "version": "1.4.1",
+          "date": "2026-10-24",
+          "localizedDescription": "# Cloudn 1.4.1\n\n这一版提升解析速度，并让网页嗅探更快找到视频。\n\n## 解析更快\n\n- **抖音**：网页验证与分享页两条路线同时进行，谁先拿到结果用谁。以前要等网页验证失败（最长 40 秒）才换分享页。\n- **抖音、Facebook、小黑盒、快手主页**：输入框认出这类链接时提前做好准备，点「解析」后少等一次启动。\n- **哔哩哔哩**：登录后字幕与视频流同时获取；抖音探测画质改为同时进行。\n- **重复解析秒开**：10 分钟内再次解析同一链接（从「最近」点开、返回再进）直接用上次的结果。解析失败不保留，登录或切换账号后会重新解析。\n\n## 网页嗅探\n\n- 打开网页的同时检查页面源码，源码里直接写着的视频、音频地址不用等播放就先列出来；找不到时和以前一样，播放后自动抓取。\n\n## 诊断\n\n- 诊断日志会记录每次解析各步骤的用时（只记平台和秒数，不记链接）。遇到解析慢，可在「设置」导出日志反馈。\n\n## 安装\n\n下载下方附件里的 `Cloudn-v1.4.1.ipa`，自行签名后安装（需要 iOS 17 及以上）；已安装的用户可在「设置 › 检查更新」里获取。",
+          "downloadURL": "https://github.com/mengangs/Cloudn/releases/download/v1.4.1/Cloudn-v1.4.1.ipa",
+          "size": 8979537,
+          "minOSVersion": "17.0"
+        }
+      ]
+    },
+    {
+      "name": "Gopeed",
+      "bundleIdentifier": "com.gopeed.gopeed",
+      "developerName": "GopeedLab",
+      "subtitle": "Fast, modern download manager",
+      "localizedDescription": "A fast, modern download manager for HTTP, BitTorrent, Magnet, and ed2k. Cross-platform, built with Golang and Flutter.",
+      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/icon.png",
+      "tintColor": "#5DC76C",
+      "versions": [
+        {
+          "version": "1.9.3",
+          "date": "2026-03-18",
+          "localizedDescription": "<table>\r\n  <tbody>\r\n    <tr>\r\n      <td rowspan=\"4\">🪟 Windows</td>\r\n      <td rowspan=\"2\"><code>EXE</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>Portable</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-amd64-portable.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-arm64-portable.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"3\">🍎 MacOS</td>\r\n      <td rowspan=\"3\"><code>DMG</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos-amd64.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos-arm64.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"6\">🐧 Linux</td>\r\n      <td><code>Flathub</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://flathub.org/apps/com.gopeed.Gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td><code>SNAP</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://snapcraft.io/gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>DEB</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-amd64.deb\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-arm64.deb\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>AppImage</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-amd64.AppImage\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-arm64.AppImage\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"4\">🤖 Android</td>\r\n      <td rowspan=\"4\"><code>APK</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>armeabi-v7a</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-armeabi-v7a.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64-v8a</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-arm64-v8a.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>x86_64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-x86_64.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>📱 iOS</td>\r\n      <td><code>IPA</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-ios.ipa\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>🐳 Docker</td>\r\n      <td>-</td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://hub.docker.com/r/liwei2633/gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\">💾 Qnap</td>\r\n      <td rowspan=\"2\"><code>QPKG</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-v1.9.3-qnap-amd64.qpkg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-v1.9.3-qnap-arm64.qpkg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"8\">🌐 Web</td>\r\n      <td rowspan=\"3\"><code>Windows</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>386</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-386.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>MacOS</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-macos-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-macos-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"3\"><code>Linux</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>386</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-386.zip\">📥</a></td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n# Release notes\r\n\r\n## 🆕 Features\r\n\r\n- feat: ed2k protocol support (important!!!) @monkeyWie (#1316)\r\n\r\n## 🐛 Bug Fixes\r\n\r\n- fix: non-range HTTP downloaded bytes exceeding total file size @monkeyWie (#1317)\r\n- fix: update isCreate logic for pending tasks @Roxym3 (#1314)\r\n- fix: update RPM icon path @monkeyWie (#1309)\r\n\r\n## 📖 Document\r\n\r\n- docs: migrate docs.gopeed.com links to gopeed.com/docs equivalents @copilot-swe-agent (#1311)\r\n\r\n## 🌎 Internationalization\r\n\r\n- feat(lang): Catalan language added @kayron8 (#1303)\r\n- feat(lang): update Turkish translation @Hweord (#1304)\r\n\r\n# 更新日志\r\n\r\n## 🆕 新特性\r\n\r\n- feat: ed2k 协议支持 (重大特性！！！) @monkeyWie (#1316)\r\n\r\n## 🐛 Bug Fixes\r\n\r\n- fix: 不支持断点下载的 HTTP 链接下载超出文件总大小 @monkeyWie (#1317)\r\n- fix: 更新 isCreate 逻辑用于等待中的任务 @Roxym3 (#1314)\r\n- fix: 更新 RPM 图标路径 @monkeyWie (#1309)\r\n\r\n## 📖 Document\r\n\r\n- docs: 迁移 docs.gopeed.com 链接至 gopeed.com/docs @copilot-swe-agent (#1311)\r\n\r\n## 🌎 Internationalization\r\n\r\n- feat(lang): 添加加泰罗尼亚语言 @kayron8 (#1303)\r\n- feat(lang): 更新土耳其语言 @Hweord (#1304)",
+          "downloadURL": "https://github.com/GopeedLab/gopeed/releases/download/v1.9.3/Gopeed-v1.9.3-ios.ipa",
+          "size": 27488140,
+          "minOSVersion": "13.0"
+        }
+      ]
+    },
+    {
+      "name": "WQFiles",
+      "bundleIdentifier": "cz.kolbi.wqfiles",
+      "developerName": "kolbicz",
+      "subtitle": "File browser, app data manager and cache cleaner",
+      "localizedDescription": "File browser, app data manager and cache cleaner for iOS 27 (worse_query, no jailbreak).",
+      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/icon.png",
+      "tintColor": "#0D9EA8",
+      "versions": [
+        {
+          "version": "0.9.3",
+          "date": "2026-11-11",
+          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2 (preliminary support). Tested on iOS 27.0.1, 27.2.1 and 26.7.1.\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.3\n\n## New\n\n- **Startup check:** while the start screen is up, WQ Files checks in the background that everything it depends on works: the App Group, finding other apps' folders, its sandbox access (a sample of those folders must really open) and the app database (names). If a new iOS version or a signing problem breaks something essential, WQ Files now stops with what failed, with **Try Again**, **Log** and **Continue Anyway**, instead of showing empty or wrong lists. Problems that leave it partly usable are shown once as a notice.\n- **Recently Deleted** (under Backups on the start screen, [#41](https://github.com/kolbicz/WQFiles/issues/41)): files WQ Files deleted, newest first, from their copies in Backups. Tap to view, **Restore** puts a file back where it was (missing folders are created, nothing is replaced), **Delete Permanently** or **Delete All** removes them from Backups.\n\n## Changed\n\n- **Cache Cleaner:** the bar shows the scan's progress while scanning, and the total counts up during the first scan.\n- **App Bundles** and **Open App Bundle** only appear where iOS lets WQ Files open those folders; iOS 26 and 27.0.1 don't.\n- **Offloaded apps:** Apple's built-in apps count as installed, and the Installed/Offloaded filters only appear when the state of nearly every app can be read. On the iOS versions tested so far iOS refuses to show other apps' bundles, so the filters usually stay hidden.\n\n## Fixed\n\n- **Log:** reading app bundles no longer adds a line per app.\n\n## Credit\n\nSandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `7aa60c63dc1c51928ab0d0d304dd56f07204a132b7833cc50b5ab3d4b3b0b321`",
+          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.3/WQFiles.ipa",
+          "size": 559984,
+          "minOSVersion": "26.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "cz.kolbi.wqfiles",
+      "title": "WQFiles 0.9.3 · 11 Nov 2026",
+      "identifier": "WQFiles-release-v0.9.3",
+      "caption": "WQFiles 0.9.3 is available.",
+      "date": "2026-11-11T18:18:51Z",
+      "tintColor": "#0D9EA8",
+      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
+      "notify": true,
+      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.3"
+    },
+    {
+      "appID": "com.mengangs.Cloudn",
+      "title": "Cloudn 1.4.1 · 24 Oct 2026",
+      "identifier": "Cloudn-release-v1.4.1",
+      "caption": "Cloudn 1.4.1 is available.",
+      "date": "2026-10-24T03:52:30Z",
+      "tintColor": "#B4532F",
+      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Cloudn/images/news.png",
+      "notify": true,
+      "url": "https://github.com/mengangs/Cloudn/releases/tag/v1.4.1"
+    },
+    {
+      "appID": "com.gopeed.gopeed",
+      "title": "Gopeed 1.9.3 · 18 Mar 2026",
+      "identifier": "Gopeed-release-v1.9.3",
+      "caption": "Gopeed 1.9.3 is available.",
+      "date": "2026-03-18T12:54:20Z",
+      "tintColor": "#5DC76C",
+      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/images/news.png",
+      "notify": true,
+      "url": "https://github.com/GopeedLab/gopeed/releases/tag/v1.9.3"
+    }
+  ]
+}
