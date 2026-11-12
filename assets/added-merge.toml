@@ -1,7 +1,7 @@
 # altgen merge config for the added-apps source: only the apps added to this
-# fork (Gopeed, Cloudn, WQFiles), as a small standalone source that always
+# fork (Gopeed, Cloudn, WQFiles, One, INSAV), as a small standalone source that always
 # displays in full.
-# Run: uvx altgen merge -c assets/added-merge.toml apps/Gopeed/apps.json apps/Cloudn/apps.json apps/WQFiles/apps.json
+# Run: uvx altgen merge -c assets/added-merge.toml apps/Gopeed/apps.json apps/Cloudn/apps.json apps/WQFiles/apps.json apps/One/apps.json apps/INSAV/apps.json
 #
 # Merge mode only reads [source] (root source metadata) and [output];
 # the apps and news entries are extracted from the input apps.json files.
