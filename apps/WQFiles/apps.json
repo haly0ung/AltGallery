@@ -16,11 +16,11 @@
       "tintColor": "#0D9EA8",
       "versions": [
         {
-          "version": "0.9.3",
-          "date": "2026-11-11",
-          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2 (preliminary support). Tested on iOS 27.0.1, 27.2.1 and 26.7.1.\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.3\n\n## New\n\n- **Startup check:** while the start screen is up, WQ Files checks in the background that everything it depends on works: the App Group, finding other apps' folders, its sandbox access (a sample of those folders must really open) and the app database (names). If a new iOS version or a signing problem breaks something essential, WQ Files now stops with what failed, with **Try Again**, **Log** and **Continue Anyway**, instead of showing empty or wrong lists. Problems that leave it partly usable are shown once as a notice.\n- **Recently Deleted** (under Backups on the start screen, [#41](https://github.com/kolbicz/WQFiles/issues/41)): files WQ Files deleted, newest first, from their copies in Backups. Tap to view, **Restore** puts a file back where it was (missing folders are created, nothing is replaced), **Delete Permanently** or **Delete All** removes them from Backups.\n\n## Changed\n\n- **Cache Cleaner:** the bar shows the scan's progress while scanning, and the total counts up during the first scan.\n- **App Bundles** and **Open App Bundle** only appear where iOS lets WQ Files open those folders; iOS 26 and 27.0.1 don't.\n- **Offloaded apps:** Apple's built-in apps count as installed, and the Installed/Offloaded filters only appear when the state of nearly every app can be read. On the iOS versions tested so far iOS refuses to show other apps' bundles, so the filters usually stay hidden.\n\n## Fixed\n\n- **Log:** reading app bundles no longer adds a line per app.\n\n## Credit\n\nSandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `7aa60c63dc1c51928ab0d0d304dd56f07204a132b7833cc50b5ab3d4b3b0b321`",
-          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.3/WQFiles.ipa",
-          "size": 559984,
+          "version": "0.9.4",
+          "date": "2026-11-12",
+          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2. Tested on iOS 27.0.1, 27.2.1 and 26.7.1.\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.4\n\n## New\n\n- **Delete folders with everything in them:** folders no longer have to be empty. WQ Files first says how many files (and how much) a folder holds, then copies every file into one backup and removes it, with progress and **Stop**. Restore them from **Recently Deleted**. App and system containers themselves, and the folders above them, stay protected.\n- **Polish** and **Russian** (thanks to Reinascape, [#46](https://github.com/kolbicz/WQFiles/pull/46)), and **Portuguese (Brazil)**. Choose them under **Language** in WQ Files' Settings.\n- **Filters in App Data, App Groups, Extension Data and Internal Daemons** ([#44](https://github.com/kolbicz/WQFiles/issues/44)): **Show** in the ⋯ menu: All, Apple, Other, and Backed Up in App Data. The ⋯ button is filled while a filter is on.\n- **Version in the device strip:** the grey strip now shows the WQ Files version above the device and iOS line, so screenshots show which version is running.\n- **Reset Access Cache** ([#42](https://github.com/kolbicz/WQFiles/issues/42)): if no app folder opens at startup, the check screen offers to repair the access cache. Another worse_query app that shares WQ Files' App Group (for example one signed with the same tool) can leave it in a state that blocks access. Nothing is deleted.\n\n## Changed\n\n- **Cache Cleaner:** when nothing needs cleaning, it says how many apps and extensions were checked instead of showing an empty list. Crash Logs that can't be measured no longer mark the whole scan as incomplete.\n\n## Fixed\n\n- **Backups failed on apps with \"0 KB files\"** ([#48](https://github.com/kolbicz/WQFiles/issues/48)): those are sockets and pipes, which can't be copied. Backups now leave them out (they hold no data).\n- **Share as ZIP** of an app folder failed with \"metadata.plist … no such file\". WQ Files now zips with its own ZIP writer and leaves out files it isn't allowed to read. **Cancel** stops it while it runs.\n- **App names:** WhatsApp, WA Business and other apps whose names start with an invisible character no longer show \"�\". Names with a zero-width joiner are shown instead of the bundle ID.\n\n## Credit\n\nSandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean), Reinascape (Russian). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `9b4fdcfe4d288025fd3c679143fd5be4fb8ea9db26fb6a09e6218b8bb966ff92`",
+          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.4/WQFiles.ipa",
+          "size": 647595,
           "minOSVersion": "26.0"
         }
       ]
@@ -29,14 +29,14 @@
   "news": [
     {
       "appID": "cz.kolbi.wqfiles",
-      "title": "WQFiles 0.9.3 · 11 Nov 2026",
-      "identifier": "WQFiles-release-v0.9.3",
-      "caption": "WQFiles 0.9.3 is available.",
-      "date": "2026-11-11T18:18:51Z",
+      "title": "WQFiles 0.9.4 · 12 Nov 2026",
+      "identifier": "WQFiles-release-v0.9.4",
+      "caption": "WQFiles 0.9.4 is available.",
+      "date": "2026-11-12T15:44:05Z",
       "tintColor": "#0D9EA8",
       "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
       "notify": true,
-      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.3"
+      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.4"
     }
   ]
 }

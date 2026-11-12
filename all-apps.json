@@ -452,11 +452,11 @@
       "tintColor": "#007AFF",
       "versions": [
         {
-          "version": "1.0.5",
-          "date": "2026-11-11",
-          "localizedDescription": "English | [简体中文](https://github.com/huamidev/GestaltX/blob/144c0c44a762db616089faddfbc0581929ae1a0a/CHANGELOG_ZH-CN.md#105---2026-11-11)\n\nBuild `11111140`.\n\n### Added\n\n- Spanish localization, bringing the app to nine supported locales ([#97](https://github.com/huamidev/GestaltX/pull/97)).\n- iPhone Air model presets ([#92](https://github.com/huamidev/GestaltX/pull/92)) and a Japanese README ([#83](https://github.com/huamidev/GestaltX/pull/83)).\n\n### Changed\n\n- About now lists the supported OS as iOS / iPadOS 27.x. Installation remains\n  available on 26.x, where on-device MobileGestalt access is marked unsupported.\n- Updated Korean translations ([#84](https://github.com/huamidev/GestaltX/pull/84)) and corrected mixed-language text in\n  Traditional Chinese and other locales ([#61](https://github.com/huamidev/GestaltX/pull/61)).\n- Renamed the Chinese Photos Clean Up preset to “照片消除”.\n- Corrected the Internal Build label and added confirmation before enabling\n  this system-wide flag ([#60](https://github.com/huamidev/GestaltX/pull/60)).\n\n### Fixed\n\n- Device access preserves existing App Group cache contents ([#55](https://github.com/huamidev/GestaltX/pull/55)).\n- Reverting Dynamic Island restores its layout together with its capability\n  flag, without discarding unrelated staged artwork changes ([#58](https://github.com/huamidev/GestaltX/pull/58)).\n- Original-value recovery now checks the cache generation and layout, keeps\n  unavailable originals distinct from missing fields, and avoids repeatedly\n  reading old backup history ([#65](https://github.com/huamidev/GestaltX/pull/65), [#66](https://github.com/huamidev/GestaltX/pull/66)).\n- Restoring an unchanged backup skips unnecessary device writes ([#69](https://github.com/huamidev/GestaltX/pull/69)).\n  Failed backup deletions remain retryable ([#70](https://github.com/huamidev/GestaltX/pull/70)), and local backup\n  replacement clears inherited device-ownership status ([#64](https://github.com/huamidev/GestaltX/pull/64)).\n- Exports of verified device backups carry device-bound proof ([#59](https://github.com/huamidev/GestaltX/pull/59)).\n  Temporary export files are removed after sharing or cancellation ([#62](https://github.com/huamidev/GestaltX/pull/62)).\n- Direct file imports are captured before confirmation is deferred ([#63](https://github.com/huamidev/GestaltX/pull/63)),\n  and coordinated reads run off the main thread ([#75](https://github.com/huamidev/GestaltX/pull/75)). Temporary provider\n  failures ([#74](https://github.com/huamidev/GestaltX/pull/74)) or one inaccessible App Group ([#71](https://github.com/huamidev/GestaltX/pull/71)) no longer block\n  other queued imports.\n- Shared import handling checks container boundaries, rejects symlink paths,\n  bounds filename metadata, and cleans abandoned files without interrupting\n  active writers ([#72](https://github.com/huamidev/GestaltX/pull/72), [#73](https://github.com/huamidev/GestaltX/pull/73), [#76](https://github.com/huamidev/GestaltX/pull/76)).\n- Device identity changes are rejected before system writes ([#67](https://github.com/huamidev/GestaltX/pull/67)).\n  Duplicate cache descriptors are validated ([#56](https://github.com/huamidev/GestaltX/pull/56)), and unchanged NaN\n  values compare consistently ([#68](https://github.com/huamidev/GestaltX/pull/68)).\n\n### Download and signing\n\n- Some users report incomplete downloads with Safari on iOS 27. If an IPA is\n  reported as damaged or cannot be extracted, download it again; it may take\n  several attempts. Try another browser if the issue persists. This has not\n  been confirmed as a Safari or iOS defect.\n- Re-sign with a certificate and profile containing at least one usable App\n  Group. Keep the share extension and configure a common App Group for both\n  the app and extension.\n\n**Full Changelog**: https://github.com/huamidev/GestaltX/compare/v1.0.4...v1.0.5",
-          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.5/GestaltX_1.0.5.ipa",
-          "size": 2942882,
+          "version": "1.0.7",
+          "date": "2026-11-12",
+          "localizedDescription": "English | [简体中文](https://github.com/huamidev/GestaltX/blob/v1.0.7/CHANGELOG_ZH-CN.md)\r\n\r\nBuild `11130112`.\r\n\r\n### Fixed\r\n\r\n- Fix container discovery on iOS 27.3 so wallpaper and App Launch Images can locate their containers again.",
+          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.7/GestaltX_1.0.7.ipa",
+          "size": 3563948,
           "minOSVersion": "26.0"
         }
       ]
@@ -495,9 +495,9 @@
         {
           "version": "1.0",
           "date": "2026-11-12",
-          "localizedDescription": "- Improved Ultra Face layout selection and added a warning when the original layout cannot be restored.",
-          "downloadURL": "https://github.com/pookjw/HermesEnabler/releases/download/1.5.1/HermesEnabler.ipa",
-          "size": 944867,
+          "localizedDescription": "- Added support for watchOS 27.0 beta 3 (24R5315i).\r\n- Improved how original settings are restored when turning features off.",
+          "downloadURL": "https://github.com/pookjw/HermesEnabler/releases/download/1.5.2/HermesEnabler.ipa",
+          "size": 948274,
           "minOSVersion": "17.0"
         }
       ]
@@ -730,11 +730,11 @@
       "tintColor": "#EC4949",
       "versions": [
         {
-          "version": "0.3.32",
-          "date": "2026-11-09",
-          "localizedDescription": "### Added\n\n- **iOS**: eight sound-effect presets and a ten-band custom equalizer on the now-playing page and in Settings, with a live response curve. A change applies to the playing track without rebuilding the player (#191).\n\n### Improved\n\n- **iOS**: the app follows the system language, English or Simplified Chinese, as the macOS app does (#191).\n- **Localization**: the English interface is complete on macOS, iOS and CarPlay. Album, playlist, artist and search pages, the iOS updater and CarPlay no longer fall back to Chinese, and VoiceOver reads the now-playing buttons in English. CarPlay play counts use K/M/B in English.\n- **Downloads**: a failed download now says why — the service's own reason (such as a risk-control refusal) or the system error code — instead of only asking you to check the network (#141).\n\n---\n\n### 新增\n\n- **iOS**：播放页和设置里新增八种音效预设和十段自定义均衡器，并带实时频率响应曲线。切换后直接作用于当前播放，不用重建播放器（#191）。\n\n### 改进\n\n- **iOS**：与 macOS 一样跟随系统语言，支持英文和简体中文（#191）。\n- **本地化**：macOS、iOS 与 CarPlay 的英文界面补齐。专辑、歌单、歌手与搜索页面、iOS 更新流程和 CarPlay 不再夹杂中文，播放页按钮的 VoiceOver 朗读也有了英文。CarPlay 的播放次数在英文下使用 K/M/B。\n- **下载**：下载失败时会说明原因（如服务端的风控拒绝）或系统错误码，而不再只提示检查网络（#141）。",
-          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.32/Kumone-iOS-0.3.32.ipa",
-          "size": 4060424,
+          "version": "0.3.33",
+          "date": "2026-11-12",
+          "localizedDescription": "### Added\n\n- **Login**: sign in with a Cookie when QR or SMS login does not work — paste a browser Cookie with `MUSIC_U` (and optionally `__csrf`); it is verified on its own before it replaces the current session. Thanks @mvanhorn (#176, closes #150).\n- **Recommendations**: add a song or an artist to the account's music blacklist from a song's menu, the now-playing page's More menu or an artist page, on macOS and iOS. The daily recommendations' \"Not interested\" is now on iOS too. Thanks @yamakze (#195).\n\n### Fixed\n\n- **Recently Played**: lists the songs you played last, newest first, with when each was played, as the official app does; it used to show the listening ranking by play count, which stays available under Top This Week and Top All Time (#198).\n- **Storage**: the device's used space counts purgeable space as available, matching the system's storage settings (#199).\n\n### Improved\n\n- **macOS**: on Sequoia the sidebar's first item sits where the system sidebar put it, and Back returns to the front of the page title, following the page's edge, with hover and press feedback. Thanks @yamakze (#196).\n- **macOS**: built with the macOS 27.2 SDK, so on macOS 27 the window takes on the system's current look, such as the new traffic-light buttons (#197).\n\n---\n\n### 新增\n\n- **登录**：扫码或短信登录用不了时，可以用 Cookie 登录——粘贴浏览器里包含 `MUSIC_U`（可选 `__csrf`）的 Cookie，验证通过后才会替换当前会话。感谢 @mvanhorn（#176，关闭 #150）。\n- **推荐**：在 macOS 和 iOS 上，可以从歌曲菜单、播放页「更多」菜单或歌手页，把单曲或音乐人加入账号的音乐黑名单。每日推荐的「不感兴趣」也来到了 iOS。感谢 @yamakze（#195）。\n\n### 修复\n\n- **最近播放**：按播放时间从新到旧列出最近听过的歌，并显示播放时间，与官方 App 一致；此前显示的是按播放次数排序的听歌排行，现在保留在「本周排行」和「总排行」中（#198）。\n- **存储空间**：设备已用空间把可清除空间算作可用，与系统的存储设置一致（#199）。\n\n### 改进\n\n- **macOS**：Sequoia 上侧栏首项的位置与系统侧栏一致；返回按钮回到页面标题前，跟随页面边缘，并有悬浮和按下反馈。感谢 @yamakze（#196）。\n- **macOS**：改用 macOS 27.2 SDK 构建，在 macOS 27 上窗口会使用系统当前的外观，例如新的红绿灯按钮（#197）。",
+          "downloadURL": "https://github.com/missuo/kumone/releases/download/v0.3.33/Kumone-iOS-0.3.33.ipa",
+          "size": 4135139,
           "minOSVersion": "16.0"
         }
       ]
@@ -1542,11 +1542,11 @@
       "tintColor": "#0D9EA8",
       "versions": [
         {
-          "version": "0.9.3",
-          "date": "2026-11-11",
-          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2 (preliminary support). Tested on iOS 27.0.1, 27.2.1 and 26.7.1.\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.3\n\n## New\n\n- **Startup check:** while the start screen is up, WQ Files checks in the background that everything it depends on works: the App Group, finding other apps' folders, its sandbox access (a sample of those folders must really open) and the app database (names). If a new iOS version or a signing problem breaks something essential, WQ Files now stops with what failed, with **Try Again**, **Log** and **Continue Anyway**, instead of showing empty or wrong lists. Problems that leave it partly usable are shown once as a notice.\n- **Recently Deleted** (under Backups on the start screen, [#41](https://github.com/kolbicz/WQFiles/issues/41)): files WQ Files deleted, newest first, from their copies in Backups. Tap to view, **Restore** puts a file back where it was (missing folders are created, nothing is replaced), **Delete Permanently** or **Delete All** removes them from Backups.\n\n## Changed\n\n- **Cache Cleaner:** the bar shows the scan's progress while scanning, and the total counts up during the first scan.\n- **App Bundles** and **Open App Bundle** only appear where iOS lets WQ Files open those folders; iOS 26 and 27.0.1 don't.\n- **Offloaded apps:** Apple's built-in apps count as installed, and the Installed/Offloaded filters only appear when the state of nearly every app can be read. On the iOS versions tested so far iOS refuses to show other apps' bundles, so the filters usually stay hidden.\n\n## Fixed\n\n- **Log:** reading app bundles no longer adds a line per app.\n\n## Credit\n\nSandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `7aa60c63dc1c51928ab0d0d304dd56f07204a132b7833cc50b5ab3d4b3b0b321`",
-          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.3/WQFiles.ipa",
-          "size": 559984,
+          "version": "0.9.4",
+          "date": "2026-11-12",
+          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2. Tested on iOS 27.0.1, 27.2.1 and 26.7.1.\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.4\n\n## New\n\n- **Delete folders with everything in them:** folders no longer have to be empty. WQ Files first says how many files (and how much) a folder holds, then copies every file into one backup and removes it, with progress and **Stop**. Restore them from **Recently Deleted**. App and system containers themselves, and the folders above them, stay protected.\n- **Polish** and **Russian** (thanks to Reinascape, [#46](https://github.com/kolbicz/WQFiles/pull/46)), and **Portuguese (Brazil)**. Choose them under **Language** in WQ Files' Settings.\n- **Filters in App Data, App Groups, Extension Data and Internal Daemons** ([#44](https://github.com/kolbicz/WQFiles/issues/44)): **Show** in the ⋯ menu: All, Apple, Other, and Backed Up in App Data. The ⋯ button is filled while a filter is on.\n- **Version in the device strip:** the grey strip now shows the WQ Files version above the device and iOS line, so screenshots show which version is running.\n- **Reset Access Cache** ([#42](https://github.com/kolbicz/WQFiles/issues/42)): if no app folder opens at startup, the check screen offers to repair the access cache. Another worse_query app that shares WQ Files' App Group (for example one signed with the same tool) can leave it in a state that blocks access. Nothing is deleted.\n\n## Changed\n\n- **Cache Cleaner:** when nothing needs cleaning, it says how many apps and extensions were checked instead of showing an empty list. Crash Logs that can't be measured no longer mark the whole scan as incomplete.\n\n## Fixed\n\n- **Backups failed on apps with \"0 KB files\"** ([#48](https://github.com/kolbicz/WQFiles/issues/48)): those are sockets and pipes, which can't be copied. Backups now leave them out (they hold no data).\n- **Share as ZIP** of an app folder failed with \"metadata.plist … no such file\". WQ Files now zips with its own ZIP writer and leaves out files it isn't allowed to read. **Cancel** stops it while it runs.\n- **App names:** WhatsApp, WA Business and other apps whose names start with an invisible character no longer show \"�\". Names with a zero-width joiner are shown instead of the bundle ID.\n\n## Credit\n\nSandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean), Reinascape (Russian). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `9b4fdcfe4d288025fd3c679143fd5be4fb8ea9db26fb6a09e6218b8bb966ff92`",
+          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.4/WQFiles.ipa",
+          "size": 647595,
           "minOSVersion": "26.0"
         }
       ]
@@ -1602,6 +1602,50 @@
   ],
   "news": [
     {
+      "appID": "sb.moe.kumone-ios",
+      "title": "Kumone 0.3.33 · 12 Nov 2026",
+      "identifier": "Kumone-release-v0.3.33",
+      "caption": "Kumone 0.3.33 is available.",
+      "date": "2026-11-12T19:08:10Z",
+      "tintColor": "#EC4949",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
+      "notify": true,
+      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.33"
+    },
+    {
+      "appID": "com.huami.gestultx",
+      "title": "GestaltX 1.0.7 · 12 Nov 2026",
+      "identifier": "GestaltX-release-v1.0.7",
+      "caption": "GestaltX 1.0.7 is available.",
+      "date": "2026-11-12T17:14:29Z",
+      "tintColor": "#007AFF",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/GestaltX/images/news.png",
+      "notify": true,
+      "url": "https://github.com/huamidev/GestaltX/releases/tag/v1.0.7"
+    },
+    {
+      "appID": "cz.kolbi.wqfiles",
+      "title": "WQFiles 0.9.4 · 12 Nov 2026",
+      "identifier": "WQFiles-release-v0.9.4",
+      "caption": "WQFiles 0.9.4 is available.",
+      "date": "2026-11-12T15:44:05Z",
+      "tintColor": "#0D9EA8",
+      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
+      "notify": true,
+      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.4"
+    },
+    {
+      "appID": "com.example.HermesEnabler",
+      "title": "HermesEnabler 1.0 · 12 Nov 2026",
+      "identifier": "HermesEnabler-release-1.5.2",
+      "caption": "HermesEnabler 1.0 is available.",
+      "date": "2026-11-12T14:49:08Z",
+      "tintColor": "#70C0F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/HermesEnabler/images/news.png",
+      "notify": true,
+      "url": "https://github.com/pookjw/HermesEnabler/releases/tag/1.5.2"
+    },
+    {
       "appID": "com.armsx2.ios",
       "title": "ARMSX2 2.6.0-nightly.20261112.1132 · 12 Nov 2026",
       "identifier": "ARMSX2-release-nightly-20261112",
@@ -1646,28 +1690,6 @@
       "url": "https://github.com/LinkPass888/Kazumi-Swift/releases/tag/3.0.5"
     },
     {
-      "appID": "com.example.HermesEnabler",
-      "title": "HermesEnabler 1.0 · 12 Nov 2026",
-      "identifier": "HermesEnabler-release-1.5.1",
-      "caption": "HermesEnabler 1.0 is available.",
-      "date": "2026-11-12T04:11:27Z",
-      "tintColor": "#70C0F0",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/HermesEnabler/images/news.png",
-      "notify": true,
-      "url": "https://github.com/pookjw/HermesEnabler/releases/tag/1.5.1"
-    },
-    {
-      "appID": "cz.kolbi.wqfiles",
-      "title": "WQFiles 0.9.3 · 11 Nov 2026",
-      "identifier": "WQFiles-release-v0.9.3",
-      "caption": "WQFiles 0.9.3 is available.",
-      "date": "2026-11-11T18:18:51Z",
-      "tintColor": "#0D9EA8",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
-      "notify": true,
-      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.3"
-    },
-    {
       "appID": "com.thebcd69.bcd",
       "title": "BCD 0.1.653 · 11 Nov 2026",
       "identifier": "BCD-release-v0.1.653",
@@ -1677,17 +1699,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/BCD/images/news.png",
       "notify": true,
       "url": "https://github.com/thebcd69/bcd-games/releases/tag/v0.1.653"
-    },
-    {
-      "appID": "com.huami.gestultx",
-      "title": "GestaltX 1.0.5 · 11 Nov 2026",
-      "identifier": "GestaltX-release-v1.0.5",
-      "caption": "GestaltX 1.0.5 is available.",
-      "date": "2026-11-11T03:45:16Z",
-      "tintColor": "#007AFF",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/GestaltX/images/news.png",
-      "notify": true,
-      "url": "https://github.com/huamidev/GestaltX/releases/tag/v1.0.5"
     },
     {
       "appID": "com.neogamelab.neostation",
@@ -1721,17 +1732,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/RushHours/images/news.png",
       "notify": true,
       "url": "https://github.com/ekomlenovic/rush_hour_ios_android/releases/tag/v2.2.2-b70"
-    },
-    {
-      "appID": "sb.moe.kumone-ios",
-      "title": "Kumone 0.3.32 · 09 Nov 2026",
-      "identifier": "Kumone-release-v0.3.32",
-      "caption": "Kumone 0.3.32 is available.",
-      "date": "2026-11-09T17:49:02Z",
-      "tintColor": "#EC4949",
-      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kumone/images/news.png",
-      "notify": true,
-      "url": "https://github.com/missuo/kumone/releases/tag/v0.3.32"
     },
     {
       "appID": "org.moviepilot.app",
