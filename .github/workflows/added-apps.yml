@@ -40,10 +40,16 @@ jobs:
       - name: Merge into added-apps.json
         run: uvx altgen merge -c assets/added-merge.toml apps/Gopeed/apps.json apps/Cloudn/apps.json apps/WQFiles/apps.json
 
+      # Proxy mirror for users who cannot reach GitHub: the raw files it
+      # references (icons, news images) and the release ipa downloads go
+      # through gh-proxy.com. Regenerated from scratch on every run.
+      - name: Generate added-apps-proxy.json
+        run: python3 tools/make_proxy.py added-apps.json added-apps-proxy.json
+
       - name: Check for changes
         id: changes
         run: |
-          if [ -n "$(git status --porcelain added-apps.json)" ]; then
+          if [ -n "$(git status --porcelain added-apps.json added-apps-proxy.json)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No changes to commit"
@@ -55,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add added-apps.json
+          git add added-apps.json added-apps-proxy.json
           git commit -m "chore: update added-apps.json"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
