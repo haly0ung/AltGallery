@@ -27,7 +27,7 @@ min_os_version = "13.0"
 strip_v_prefix = true
 include_prereleases = false
 # Each release contains a single iOS ipa: Gopeed-v<version>-ios.ipa
-asset_pattern = ".*-ios\.ipa$"
+asset_pattern = '.*-ios\.ipa$'
 
 [news]
 title_template = "{name} {version} · {date}"
