@@ -17,7 +17,7 @@
       "versions": [
         {
           "version": "1.7.1-22",
-          "date": "2026-11-04",
+          "date": "2026-11-04T16:15:28Z",
           "localizedDescription": "## 1.7.1 (build 22)\n\n- 修复：开着系统「旋转锁定」时，视频全屏只显示半截画面\n- 改进：竖屏视频进全屏不再被强制转成横屏，全屏画面上多了「横 / 竖」小按钮，点一下就能切换\n- 新增：搜索结果里同一个合集的多期折成一行「共 N 期」，点开展开\n\n安装包是未签名的，推荐用 LCSign（https://www.sign.lc）签名安装，也可以用自己的证书 / SideStore 等自签。",
           "downloadURL": "https://gh-proxy.com/https://github.com/ios151/One-releases/releases/download/v1.7.1-22/One-unsigned.ipa",
           "size": 1692085,
