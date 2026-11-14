@@ -253,25 +253,6 @@
       ]
     },
     {
-      "name": "Cloudn",
-      "bundleIdentifier": "com.mengangs.Cloudn",
-      "developerName": "mengangs",
-      "subtitle": "Paste a link, and let it handle the rest",
-      "localizedDescription": "Paste a link and let it handle the rest. Cloud drive shares, short videos, web videos, GitHub, and magnet links — one app to parse, preview, and download fast. Free and open source, no ads, no server; all parsing happens on-device.",
-      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Cloudn/icon.png",
-      "tintColor": "#B4532F",
-      "versions": [
-        {
-          "version": "1.4.2",
-          "date": "2026-11-14T07:41:19Z",
-          "localizedDescription": "# Cloudn 1.4.2\n\n这一版新增 SideStore / AltStore 侧载软件源支持，修复 Instagram 网页登录点「完成」卡住的问题，并带来多项稳定性、解析与性能优化。\n\n## 新增与改进\n\n- **SideStore / AltStore 软件源**：新增 [altstore.json](https://raw.githubusercontent.com/mengangs/Cloudn/main/altstore.json) 订阅源并在发版时自动更新；在「设置 › 更新 › 添加侧载软件源」中可一键添加到 SideStore / AltStore 或复制源地址。\n- **Instagram 网页登录修复**：支持从 `sessionid` 提取用户 ID 并补全 `ds_user_id`，实时合并页面 `document.cookie`，放宽非登录页重定向时的校验误判，并在未检测到登录态或校验失败时弹出明确提示。\n- **并发与稳定性优化**：加强下载与解析任务防重入保护、完善各网盘/视频解析器与分享扩展边界处理，提升列表滚动、实时活动与无障碍体验。\n\n## 安装\n\n推荐通过 SideStore / AltStore 订阅本仓库软件源直接接收更新；也可下载下方附件里的 `Cloudn-v1.4.2.ipa` 自行签名后安装（需要 iOS 17 及以上）。",
-          "downloadURL": "https://github.com/mengangs/Cloudn/releases/download/v1.4.2/Cloudn-v1.4.2.ipa",
-          "size": 9034290,
-          "minOSVersion": "17.0"
-        }
-      ]
-    },
-    {
       "name": "DLiPA",
       "bundleIdentifier": "com.ahmedbafkir.dlipa",
       "developerName": "Ahmed Bafkir",
@@ -392,6 +373,30 @@
       ]
     },
     {
+      "name": "Erosion-CN",
+      "bundleIdentifier": "com.jbdotparty.Erosion",
+      "developerName": "Kianuni",
+      "subtitle": "iOS / iPadOS 系统配置与 MobileGestalt 研究工具箱",
+      "localizedDescription": "Erosion MobileGestalt 工具箱的简体中文本地化版本，针对 iOS / iPadOS 27.x 的系统配置强化了写入与备份流程，并部分支持 iOS / iPadOS 26.x。重签名时至少需要一个 App Group 权限。",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Erosion-CN/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Erosion-CN/images/home.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Erosion-CN/images/tweaks.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Erosion-CN/images/files.jpeg"
+      ],
+      "tintColor": "#D07030",
+      "versions": [
+        {
+          "version": "0.9.1",
+          "date": "2026-11-12T13:06:38Z",
+          "localizedDescription": "## Erosion-CN v0.9.1 更新日志 · Bilingual Release Notes (Build 23)\n\n### 🇨🇳 简体中文\n\n#### 🛠️ 关键 Bug 修复：原生 AI 机型 `Personal Translator (#266)` 基线锁定与双向自愈（修复 #16 / #22）\n1. **修复旧版（`v0.8.3 – v0.8.5`）误关槽位 `#266` 导致相册云端工具与相机 Siri「0 秒瞬间报错」的问题**：\n   - 在所有原生支持 Apple 智能的 iPhone（`iPhone 15 Pro` 至 `iPhone 18 Pro Max` 全系列）原厂 `CacheData` 中，`Personal Translator`（`M1n2sAqf33NAOgZRGxQYBA`，槽位 `#266`）原厂默认为 `true (0x01)`，而 `Audio Intelligence`（`rb2tKZxlj0Gm2tBmUQSLqQ`，槽位 `#178`）原厂默认为 `false (0x00)`。\n   - 此前跨 iOS 版本 OTA 升级（旧 `OriginalGestalt.plist` 的 `CacheUUID` 变化）或非 18 Pro 机型执行一键配齐时，可能将 `#266` 误写为 `false (0x00)` 并污染本地 `UserDefaults` 基线快照，触发 `GenerativeModels / ModelCatalog` 本地预检 0ms 熔断报错（端侧快速消除正常，但**照片高质量消除、扩图延伸、重构及相机 `SIRI` 模式**瞬间报错）。\n   - `v0.9.1` 已锁定全系原生 AI iPhone 的硬件原厂基线（`#266 = true`、`#178 = false`，免疫跨版本备份不匹配与污染缓存），并在恢复出厂 / 重建缓存 / 重生备份时自动清理本地槽位基线记录。\n2. **新增双向异常检测与「一键配齐 / 修复」自愈提示**：\n   - 顶部「Apple 智能激活四要素体检」卡片、实时 `MGCopyAnswer` 核验与防呆护栏现可**双向检测**槽位偏移（无论 `#178` 被强开为 `true` 还是原生 AI 机型的 `#266` 被误关为 `false`）；\n   - 受旧版影响的用户升级 `v0.9.1` 后，打开 `MobileGestalt` 点击顶部 **「一键配齐 / 修复」→「应用」→ 手动关机冷重启** 即可完整恢复原厂基线。\n3. **单包中英双语同步更新**：新增诊断提示词条已 100% 同步内置简体中文 (`zh-Hans`) 与英文 (`en`) 双语翻译。\n\n---\n\n### 🌐 English\n\n#### 🛠️ Critical Bug Fix: `Personal Translator (#266)` Factory Baseline Lock & Two-Way Auto-Heal (Fixes #16 / #22)\n1. **Fixed instant 0ms failure in Photos Cloud Tools (High-Quality Clean Up / Extend / Reframe) & Camera `SIRI` caused by slot `#266` downgrade**:\n   - On all native Apple Intelligence iPhones (`iPhone 15 Pro` through `iPhone 18 Pro Max`), factory `CacheData` sets `Personal Translator` (`M1n2sAqf33NAOgZRGxQYBA`, slot `#266`) to `true (0x01)` and `Audio Intelligence` (`rb2tKZxlj0Gm2tBmUQSLqQ`, slot `#178`) to `false (0x00)`.\n   - Earlier versions (`v0.8.3 – v0.8.5`) could accidentally flip slot `#266` to `false (0x00)` on non-18-Pro models or after an OTA iOS update (`CacheUUID` change) and cache that polluted baseline in `UserDefaults`, causing `GenerativeModels / ModelCatalog` to abort locally in 0ms while Fast Clean Up still worked.\n   - `v0.9.1` enforces the verified hardware factory baseline (`#266 = true`, `#178 = false`) across all native AI iPhones and purges stale `UserDefaults` slot baselines on Factory Restore / Clean Cache Rebuild / Backup Regeneration.\n2. **Two-Way Slot Drift Detection & One-Click Auto-Heal**:\n   - Both the 4-Factor Readiness Checkup Card and live `MGCopyAnswer` verification now detect drift in **both directions** (`#178` forced ON or `#266` accidentally turned OFF on native AI hardware) and expose **One-Click Setup / Repair** immediately.\n   - To heal an affected device: install `v0.9.1` → open **Tweaks → MobileGestalt** → tap **One-Click Setup / Repair** → **Apply** → **power off and cold-reboot**.\n\n---\n\n### 📦 Checksum · 安装包校验信息\n\n- **File**: `Erosion_v0.9.1_Bilingual.ipa`\n- **Version**: `v0.9.1` (Build 23)\n- **SHA-256**: `32a538f9ffbb2e9c604c4a39f58b4491eb3731886ea439dff6b0bdefcb514c98`",
+          "downloadURL": "https://github.com/Kianuni/Erosion-CN/releases/download/v0.9.1/Erosion_v0.9.1_Bilingual.ipa",
+          "size": 6277874,
+          "minOSVersion": "26.0"
+        }
+      ]
+    },
+    {
       "name": "Fathom",
       "bundleIdentifier": "app.fathom.emulator",
       "developerName": "Leviidev",
@@ -462,30 +467,11 @@
       ]
     },
     {
-      "name": "Gopeed",
-      "bundleIdentifier": "com.gopeed.gopeed",
-      "developerName": "GopeedLab",
-      "subtitle": "Fast, modern download manager",
-      "localizedDescription": "A fast, modern download manager for HTTP, BitTorrent, Magnet, and ed2k. Cross-platform, built with Golang and Flutter.",
-      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/icon.png",
-      "tintColor": "#5DC76C",
-      "versions": [
-        {
-          "version": "1.9.3",
-          "date": "2026-03-18T12:54:20Z",
-          "localizedDescription": "<table>\r\n  <tbody>\r\n    <tr>\r\n      <td rowspan=\"4\">🪟 Windows</td>\r\n      <td rowspan=\"2\"><code>EXE</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>Portable</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-amd64-portable.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-windows-arm64-portable.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"3\">🍎 MacOS</td>\r\n      <td rowspan=\"3\"><code>DMG</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos-amd64.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-macos-arm64.dmg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"6\">🐧 Linux</td>\r\n      <td><code>Flathub</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://flathub.org/apps/com.gopeed.Gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td><code>SNAP</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://snapcraft.io/gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>DEB</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-amd64.deb\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-arm64.deb\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>AppImage</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-amd64.AppImage\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-linux-arm64.AppImage\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"4\">🤖 Android</td>\r\n      <td rowspan=\"4\"><code>APK</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>armeabi-v7a</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-armeabi-v7a.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64-v8a</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-arm64-v8a.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>x86_64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-android-x86_64.apk\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>📱 iOS</td>\r\n      <td><code>IPA</code></td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=Gopeed-v1.9.3-ios.ipa\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>🐳 Docker</td>\r\n      <td>-</td>\r\n      <td>universal</td>\r\n      <td><a href=\"https://hub.docker.com/r/liwei2633/gopeed\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\">💾 Qnap</td>\r\n      <td rowspan=\"2\"><code>QPKG</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-v1.9.3-qnap-amd64.qpkg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-v1.9.3-qnap-arm64.qpkg\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"8\">🌐 Web</td>\r\n      <td rowspan=\"3\"><code>Windows</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>386</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-windows-386.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"2\"><code>MacOS</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-macos-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-macos-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td rowspan=\"3\"><code>Linux</code></td>\r\n      <td>amd64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-amd64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>arm64</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-arm64.zip\">📥</a></td>\r\n    </tr>\r\n    <tr>\r\n      <td>386</td>\r\n      <td><a href=\"https://gopeed.com/api/download?tpl=gopeed-web-v1.9.3-linux-386.zip\">📥</a></td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n# Release notes\r\n\r\n## 🆕 Features\r\n\r\n- feat: ed2k protocol support (important!!!) @monkeyWie (#1316)\r\n\r\n## 🐛 Bug Fixes\r\n\r\n- fix: non-range HTTP downloaded bytes exceeding total file size @monkeyWie (#1317)\r\n- fix: update isCreate logic for pending tasks @Roxym3 (#1314)\r\n- fix: update RPM icon path @monkeyWie (#1309)\r\n\r\n## 📖 Document\r\n\r\n- docs: migrate docs.gopeed.com links to gopeed.com/docs equivalents @copilot-swe-agent (#1311)\r\n\r\n## 🌎 Internationalization\r\n\r\n- feat(lang): Catalan language added @kayron8 (#1303)\r\n- feat(lang): update Turkish translation @Hweord (#1304)\r\n\r\n# 更新日志\r\n\r\n## 🆕 新特性\r\n\r\n- feat: ed2k 协议支持 (重大特性！！！) @monkeyWie (#1316)\r\n\r\n## 🐛 Bug Fixes\r\n\r\n- fix: 不支持断点下载的 HTTP 链接下载超出文件总大小 @monkeyWie (#1317)\r\n- fix: 更新 isCreate 逻辑用于等待中的任务 @Roxym3 (#1314)\r\n- fix: 更新 RPM 图标路径 @monkeyWie (#1309)\r\n\r\n## 📖 Document\r\n\r\n- docs: 迁移 docs.gopeed.com 链接至 gopeed.com/docs @copilot-swe-agent (#1311)\r\n\r\n## 🌎 Internationalization\r\n\r\n- feat(lang): 添加加泰罗尼亚语言 @kayron8 (#1303)\r\n- feat(lang): 更新土耳其语言 @Hweord (#1304)",
-          "downloadURL": "https://github.com/GopeedLab/gopeed/releases/download/v1.9.3/Gopeed-v1.9.3-ios.ipa",
-          "size": 27488140,
-          "minOSVersion": "13.0"
-        }
-      ]
-    },
-    {
       "name": "HermesEnabler",
       "bundleIdentifier": "com.example.HermesEnabler",
       "developerName": "pookjw",
       "subtitle": "Enable Hermès Watch Faces on any Apple Watch",
-      "localizedDescription": "Enable Hermès and Ultra watch faces on any Apple Watch, along with display, sensor, and Siri tweaks backed by MobileGestalt changes and automatic backups. Requires watchOS 27.0 through 27.3 beta 1.",
+      "localizedDescription": "Enable Hermès and Ultra watch faces on any Apple Watch, along with display, sensor, and Siri tweaks backed by MobileGestalt changes and automatic backups. Requires watchOS 27.0 through 27.3 beta 1 and a paid Apple Developer account.",
       "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/HermesEnabler/icon.png",
       "screenshots": [
         "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/HermesEnabler/images/watch.jpg"
@@ -550,30 +536,11 @@
       ]
     },
     {
-      "name": "INSAV",
-      "bundleIdentifier": "com.ios151.insav",
-      "developerName": "ios151",
-      "subtitle": "insav 原生 iOS 客户端",
-      "localizedDescription": "INSAV 是 insav 的第三方原生 iOS 客户端（SwiftUI，iOS 16+，iPhone / iPad 通用）。四个站点（主站 / 无码站 / 动漫站 / 4K 站）完整适配，浏览 / 搜索 / 系统原生播放（画中画、AirPlay）/ 外部播放器 / 整部下载离线观看 / 登录、收藏、订阅。安装包是未签名的，由商店用你自己的 Apple ID 签名。",
-      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/INSAV/icon.png",
-      "tintColor": "#E11D48",
-      "versions": [
-        {
-          "version": "1.3.1-6",
-          "date": "2026-11-13T05:33:07Z",
-          "localizedDescription": "## 1.3.1 (build 6)\n\n- 修复无码站打不开：无码站的域名会不定期更换，原来的自动发现方式已经失效，导致一直连不上；现在改成每次从官方的跳转页现取最新域名，换域名也能自动跟上，发现不了时提示里会说清楚卡在哪一步\n- 其余功能同 1.3.0 (5)\n\n安装包是未签名的，推荐用 LCSign（https://www.sign.lc）签名安装，也可以用自己的证书 / SideStore 等自签。",
-          "downloadURL": "https://github.com/ios151/Insav-releases/releases/download/v1.3.1-6/Insav-unsigned.ipa",
-          "size": 1634598,
-          "minOSVersion": "16.0"
-        }
-      ]
-    },
-    {
       "name": "iPadn",
       "bundleIdentifier": "app.local.iPadn",
       "developerName": "mengangs",
-      "subtitle": "Download older and removed App Store apps",
-      "localizedDescription": "Search, download and install the apps you own on iPhone and iPad — older versions, removed apps, regional price comparison and native install. Works with iPhone, iPad, Apple TV and Mac apps, in 11 languages.",
+      "subtitle": "下载 App Store 的历史版本与已下架应用",
+      "localizedDescription": "在 iPhone 与 iPad 上搜索、下载并安装你已拥有的应用——包括历史版本与已下架应用，支持区域价格比较与原生安装。支持 iPhone、iPad、Apple TV 与 Mac 应用，提供 11 种语言。",
       "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/iPadn/icon.png",
       "screenshots": [
         "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/iPadn/images/search.png",
@@ -964,29 +931,10 @@
       ]
     },
     {
-      "name": "Mori",
-      "bundleIdentifier": "com.mori.downloader",
-      "developerName": "coflyn",
-      "subtitle": "Save anything, from anywhere.",
-      "localizedDescription": "Save videos, photos, and audio from 16 platforms with built-in media tools. No watermarks, accounts, or tracking. Everything runs locally on your device.",
-      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Mori/icon.png",
-      "tintColor": "#27282A",
-      "versions": [
-        {
-          "version": "4.6.0",
-          "date": "2026-11-14T01:31:23Z",
-          "localizedDescription": "# What's New in Mori 4.6.0\r\n\r\n### New Features & Enhancements\r\n\r\n* **Built-in Offline & Online Tools Suite**: Dedicated utility tab featuring a live browser media sniffer (HLS & stream interception with tracker/ad filtering), offline video-to-audio extractor (WAV/MP3 via Web Audio API), client-side image converter & compressor (WebP/JPG/PNG), PDF document compressor, multi-platform username checker (20+ networks), anime scene reverse search (trace.moe), TikTok profile inspector, and shortlink resolver.\r\n* **In-App APK Updater & Direct GitHub Installs**: Direct in-app update flow for Android detecting new GitHub releases, displaying localized changelog popups across 9 languages, and downloading APKs with in-app progress ring and package installer trigger.\r\n* **Platform-Specific iOS Update Routing**: Tailored update modal for iOS detecting platform environment, calculating `.ipa` package size, and routing users directly to `.ipa` browser download or GitHub Release page.\r\n* **Template-Based Filenames & Persistent Counters (#21)**: Custom file naming patterns (`{platform}`, `{date}`, `{time}`, `{quality}`, `{num}`, `{title}`) with monotonic sequential counters per platform.\r\n* **Real-Time Download Progression (#22)**: Enhanced progress tracking for chunked streams with live byte counters, transfer speed, connection stall detection, and storage write status.\r\n* **Android MediaStore & Gallery Instant Sorting**: Scans newly downloaded media with refreshed timestamps so files appear at the top of device gallery and music apps under \"Recent\" or \"Today\".\r\n\r\n### Bug Fixes & Scraper Repairs\r\n\r\n* **YouTube Server 2 Migration**: Migrated YouTube Server 2 to `ytmp3.gl` (`api.ytmp3.gl`) for reliable MP3 and MP4 stream conversions.\r\n* **Bilibili Multi-Part Parameter Preservation (#23)**: Preserved `?p=` episode parameter when sanitizing Bilibili URLs so multi-part video links aren't deduped into part 1 during batch downloads.\r\n* **Concurrent Downloads & Wake-Lock (#24)**: Fixed Android foreground service and wake-lock terminating prematurely when multiple downloads run concurrently.\r\n* **Share History Limits (#24)**: Aligned ShareActivity history truncation with user-configured `mori_history_limit` so favorited items are preserved.\r\n* **Background State Exception (#24)**: Fixed missing `pauseAllMedia` import throwing ReferenceError when the app enters the background.\r\n* **Preview Modal Missing File Status**: Fixed false `(File missing)` status on audio and music cards by mapping audio MIME types dynamically, rendering proper music placeholders, and detecting media readiness via HTML5 audio events.\r\n* **Upstream Security Upgrade (#25)**: Upgraded `proxy-addr` to 2.0.8 resolving CVE vulnerability.\r\n\r\n### Performance & Reliability\r\n\r\n* **Stale OTA Patch Auto-Purge (#24)**: Automatically purges legacy or stale OTA scraper patches when a newer bundled core version is detected.\r\n\r\n\r\n**Full Changelog**: https://github.com/coflyn/Mori/compare/v4.5.2...v4.6.0",
-          "downloadURL": "https://github.com/coflyn/Mori/releases/download/v4.6.0/Mori-v4.6.0-iOS-Unsigned.ipa",
-          "size": 2179675,
-          "minOSVersion": "14.0"
-        }
-      ]
-    },
-    {
       "name": "Mornye",
       "bundleIdentifier": "com.zarz.mornye",
       "developerName": "zarzet",
-      "subtitle": "FLAC Downloader for iOS",
+      "subtitle": "Hi-res music player with downloads",
       "localizedDescription": "Mornye is a Flutter and Rust music app with a full-screen player, hi-res and bit-perfect output, synced word-by-word lyrics, and installable extensions for metadata and audio downloads. Downloads and your own music folders share one local library, and SMB, WebDAV, HTTP or Subsonic servers can stream straight to the phone.",
       "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Mornye/icon.png",
       "screenshots": [
@@ -1076,25 +1024,6 @@
           "downloadURL": "https://github.com/dddevid/Musly/releases/download/v2.0.3/musly-ios.ipa",
           "size": 14317899,
           "minOSVersion": "15.0"
-        }
-      ]
-    },
-    {
-      "name": "One",
-      "bundleIdentifier": "com.ios151.one",
-      "developerName": "ios151",
-      "subtitle": "ONE 一个原生 iOS 客户端",
-      "localizedDescription": "ONE 一个原生 iOS 客户端，影视类内容浏览与播放。",
-      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/One/icon.png",
-      "tintColor": "#000000",
-      "versions": [
-        {
-          "version": "1.7.1-22",
-          "date": "2026-11-04T16:15:28Z",
-          "localizedDescription": "## 1.7.1 (build 22)\n\n- 修复：开着系统「旋转锁定」时，视频全屏只显示半截画面\n- 改进：竖屏视频进全屏不再被强制转成横屏，全屏画面上多了「横 / 竖」小按钮，点一下就能切换\n- 新增：搜索结果里同一个合集的多期折成一行「共 N 期」，点开展开\n\n安装包是未签名的，推荐用 LCSign（https://www.sign.lc）签名安装，也可以用自己的证书 / SideStore 等自签。",
-          "downloadURL": "https://github.com/ios151/One-releases/releases/download/v1.7.1-22/One-unsigned.ipa",
-          "size": 1692085,
-          "minOSVersion": "16.0"
         }
       ]
     },
@@ -1411,8 +1340,8 @@
       "name": "Silverphase",
       "bundleIdentifier": "com.silverphase.editor",
       "developerName": "akinal5765-byte",
-      "subtitle": "Native film and print simulation for iPhone and iPad",
-      "localizedDescription": "Take a photograph through camera input, film, development, print and scan. Choose film and paper, then shape the image with exposure, development contrast, filtration and physical frame size, with grain, halation and film edges formed in the same imaging pipeline.",
+      "subtitle": "面向 iPhone 与 iPad 的原生胶片与印相模拟器",
+      "localizedDescription": "一张照片要经历相机输入、胶片、显影、放印与扫描。选好胶片与相纸，再用曝光、显影反差、滤镜与画幅尺寸塑造影像，颗粒、光晕与片边都在同一条成像管线中生成。",
       "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Silverphase/icon.png",
       "screenshots": [
         "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Silverphase/images/canvas.png",
@@ -1428,6 +1357,28 @@
           "downloadURL": "https://github.com/akinal5765-byte/Silverphase/releases/download/v1.1.1/Silverphase-1.1.1-iOS-unsigned.ipa",
           "size": 92284015,
           "minOSVersion": "18.0"
+        }
+      ]
+    },
+    {
+      "name": "Stats",
+      "bundleIdentifier": "com.ishtiaqsyed.StatsForIOS",
+      "developerName": "ishtiaq156",
+      "subtitle": "Your Mac's activity, at a glance",
+      "localizedDescription": "View your Mac's system activity on iPhone over a local encrypted connection. A native, local-first system monitor with a lightweight Mac companion and a mobile dashboard.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/images/link.jpeg"
+      ],
+      "tintColor": "#2090F0",
+      "versions": [
+        {
+          "version": "0.3.15",
+          "date": "2026-11-14T12:37:54Z",
+          "localizedDescription": "Stats iPhone 0.3.15 keeps Paired Macs in Mac Connection Settings.\n\n## What's Changed\n\n- Removed the duplicate Paired Macs entry from Dashboard Settings.\n- Paired Macs remains available from Mac Connection Settings.\n\n## Download\n\n- **iPhone app · 0.3.15 (build 18):** `Stats-v0.3.15-iOS.ipa` (iOS 17+, arm64; unsigned for SideStore and AltStore).\n- **SHA-256:** `d44cfd7d0c87186e1ca42e12cf89106b8b2f8e24ed391f0c58bbfe3520120276`\n- Mac Companion 0.3.13 remains compatible.\n\n**Full Changelog:** https://github.com/ishtiaq156/stats/compare/v0.3.21...v0.3.22",
+          "downloadURL": "https://github.com/ishtiaq156/stats/releases/download/v0.3.22/Stats-v0.3.15-iOS.ipa",
+          "size": 2800963,
+          "minOSVersion": "17.0"
         }
       ]
     },
@@ -1452,6 +1403,30 @@
           "downloadURL": "https://github.com/StikDebug/StikDebug/releases/download/3.2.2/StikDebug-3.2.2.ipa",
           "size": 16924687,
           "minOSVersion": "17.4"
+        }
+      ]
+    },
+    {
+      "name": "Swipt",
+      "bundleIdentifier": "io.nekohasekai.swipt",
+      "developerName": "nekohasekai",
+      "subtitle": "The universal iOS automation platform",
+      "localizedDescription": "Swipt automates this iPhone or iPad with JavaScript swiplets. It bundles a TypeScript SDK built on CoreDevice and the accessibility services, plus an MCP-compatible API for driving and debugging swiplets from your computer.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Swipt/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Swipt/images/swiplets.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Swipt/images/developer.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Swipt/images/pair.jpeg"
+      ],
+      "tintColor": "#455A64",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "date": "2026-11-14T04:28:34Z",
+          "localizedDescription": "* Fix wrong and unsourced claims in comments\n* Fix the inner display of iPhone Duo being ignored\n* Translate the CLI with i18next\n* Enable strict type checking for the CLI and the dev tools\n* Add contexts to the CLI translations\n* Rework the swipt-driver interface and add API tokens to swipt driver\n* Fix the driver build tool ignoring unpack options for ZIP archives\n* Replace the hand-written ZIP code of the CLI with fflate\n* Simplify screen streaming and recording\n* Share one atomic file write\n* Fix mDNS browsing and name conflict handling\n* Simplify the JavaScriptCore adapter\n* Add swipt driver to serve a device from the computer\n* Build the Linux and Windows driver with the WebKit of a Bun release\n* Port the driver and the CLI to Linux and Windows\n* Follow Apple's terms and style guides in the CLI translations\n* Improve automatic unlocking\n* Remove unsourced and misattributed claims from comments\n* Require iOS 26 for the accessibility API\n* Fix network lockdown connections closing without a heartbeat\n* Extend Swiplet icon colors\n* Add the chart and data grid components\n* Remove the guards against bad values from Swiplets\n* Add stream actions and the process API\n* Fix lifecycle and concurrency bugs\n* Simplify loopback VPN setup\n* Fix cancellation and validation bugs\n* Follow the Apple Style Guide in the CLI strings\n* Allow sideload install to downgrade Swipt\n* Fix fetch crashing in Swiplet interfaces\n* Clean up legacy designs\n* Pause services and the API while the device is unavailable\n* Replace the background audio with the developer service\n* Fix slow detection of unsupported networks\n* Resolve DNS with the system configuration on iOS\n* Detect the foreground app right after connecting\n* Connect touch input before the first tap\n* Send input without checking the lock state\n* Split the CLI commands into one file each\n* Fix the detection of the foreground app\n* Download swiplet updates on demand and show progress\n* Number enumerations with iota\n* Skip unchanged builds in dev install\n* Reformat code\n* Fix the position of the repository loading indicator\n* Fix choosing VPN addresses that do not loop back\n* Generate the CLI's Protobuf code as TypeScript\n* Move the CLI to TypeScript\n* Generate Protobuf code with buf\n* Version releases automatically and publish packages on release\n* Use the stable official swiplets feed in stable builds\n* Replace outdated Developer Disk Images\n* Fix tunnel uploads stalling on large TLS records\n* Fix loopback setup not advancing after the tunnel is found\n* Merge the release workflow into the build workflow\n* Fix publishing when the new draft is not listed yet\n* Reject outdated swiplets\n* Add available() and minimum iOS versions for swiplets\n* Support iOS 17.4\n* Fix calls hanging when their results can't be converted\n* Fix accessibility snapshots failing on infinite frames\n* Refactor the screen API\n* Cancel Vision requests when the call is aborted\n* Accept only file handles as files\n* Track the foreground app without accessibility and close idle accessibility connections\n* Fix setup failing to open Swipt\n* Fix slow device list\n* Fix screen-viewing notification dismissal\n* Add CONTRIBUTING.md\n* Fix leaked accessibility connections\n* Check the API level against the last stable release\n* Improve accessibility reads and taps\n* Add HTTP APIs\n* Restore missing localizations\n* Detect loopback VPNs with IPv6 addresses\n* Add swiplet API levels and an updates sheet\n* Add Tailscale support\n* Improve Cloudflare tunnel setup\n* Preserve error causes\n* Show that cellular data is unsupported in setup\n* Recover automation from dropped device connections\n* Update outdated Developer Disk Images\n* Add basic vphone support\n* Separate the app intents API and match the system dialogs\n* Move graphics to Objective-C in cgo\n* Fix setup failing while Swipt relaunches\n* Share the install flow between sideload and dev\n* Fix missing Developer Disk Image in IPA\n* Share the bundle identifier between sideload and dev builds\n* Preserve the swiplet order in swiplets.json\n* Add sideload setup command\n* Persist the simulated location\n* Add the official swiplet repository\n* Move preferredLocalizations to @swipt/api/localization\n* Remove the expo-localization shim from extensions\n* Add place search to swiplets\n* Add expo-maps to swiplets\n* Fix database change events firing before commit\n* Close the screen feed sooner when idle\n* Fix the swiplet runtime without the dev menu\n* Fix element taps and their timeline events\n* Fix updating Swipt on a locked device\n* Print API URLs after sideloading\n* Cache sideload downloads\n* Re-provision when the signing certificate is revoked\n* Add skills update workflow\n* Build only what changed\n* Localize the CLI\n* Add CLI translations\n* Move documentation to swipt.io\n* Fix sideload masking device errors\n* Clean up documentation content\n* Imprve the pairing guide\n* Fix pairing expiring in the background\n* Fix swipt-server published to GitHub releases\n* Localize the documentation\n* Add initial documentation\n* Add documentation site\n* Open Settings when the developer is not trusted\n* Reuse the ExpoModulesJSI build in the app\n* Improve CI caching and reliability\n* Only list sideloaded devices for update and uninstall\n* Add sideload command\n* Add app icon\n* Update DeveloperDiskImage\n* Add CLI REPL server\n* Format with bun fmt\n* Move simple development commands back to the Makefile\n* Add golangci-lint and fix lint issues\n* Fix the Swipt package versions in new projects\n* Fix the missing installed build check\n* Fix the REPL output format\n* Fix expo-sqlite missing APIs\n* Fix per-iteration let bindings in Swiplet interfaces\n* Fix bad values from Swiplets crashing Swipt\n* Build ExpoModulesCore from source\n* Give Swiplet interfaces the web APIs of extensions\n* Isolate Swiplet interfaces from each other\n* Support import in the REPL\n* Fix crypto.subtle missing algorithms\n* Fix TextDecoder missing legacy encodings\n* Load parts of the runtime on demand\n* Fix web APIs that didn't follow their standards\n* Remove the network APIs\n* Remove expo-file-system\n* Give each Swiplet and the REPL a cache directory\n* Fix native bindings leaking to Swiplets\n* Reduce the memory used by ASCII scripts\n* Choose the install device by name or UDID\n* Rework networking for Swiplets\n* Update frontend dependencies\n* Add SQLite support for Swiplets\n* Fix the CI build\n* Build and install the app with one command\n* Organize the CLI by what each command operates on\n* Make the SDK usable without helper scripts\n* Refactor onboarding UI\n* Add swiplet info, reordering and database tables\n* Hold taps for a millisecond and drop the hold option and the rest after drags\n* Add accessibility.tap, which taps an element once a tap would reach it\n* Retry a launch when the previous process is still exiting\n* Reopen the swiplet behind an error notification and give interfaces reportError\n* Localize the App Shortcuts phrases with strings files\n* Skip screen probes while the region keeps changing and trace recording.find\n* Recognize text at the density its minimum height needs\n* Fix touch moves dropped by the device\n* Share one downscaled frame between screen comparisons\n* Keep the input connection when unlocking an unlocked device\n* Keep the screen geometry while its orientation holds\n* Tell the foreground app from the device's process states\n* Trace screen matching, input and the screen feed\n* Give the REPL a data directory\n* Find matches in screen recordings\n* Localize the app and swiplets\n* Add screen.find\n* Align recording frames with the event clock\n* Recognize text in the device languages by default\n* Use the Remote Desktop mode for the screen feed\n* Cache the lock state for input\n* Replace accessibility locators with find and element actions\n* Add README\n* Report swiplet interface errors and logs\n* Fix the swiplet archive layout\n* Use a standard alert to confirm swiplet deletion\n* Support worklets in swiplet interfaces\n* Rebuild the runtime bundle when shared sources change\n* Apply Metro transforms in swiplet builds\n* Improve CI caching\n* Show swiplet interfaces full screen and snapshot the front app by default\n* Fix the publish check ignoring the CLI\n* Refactor the CLI\n* Import swiplets only as .swiplet files and simplify the swiplet list\n* Merge the Go CLI into the npm CLI\n* Describe sources in package.json\n* Publish packages only when they change\n* Localize repository names\n* Align repository rows with the add row\n* Fix URL fields\n* Add repository icons\n* Put Add Repository first\n* Copy the license when publishing\n* List swiplets relative to the source by default\n* Add swiplet repositories\n* Fix nightly package publishing\n* Add .swiplet files and the npm API packages\n* Restructure swiplet SDK and add shared file system API\n* Fix loopback VPN prompt\n* Move protobuf to internal/proto\n* Add swiplet\n* Separate local and Cloudflare MCP servers\n* Fix setText not registering as an edit in text views\n* Add Cloudflare tunnel for MCP server\n* Replace slog with sing logger\n* Fix workflow file list paths\n* Move workflow editor bar to keyboard accessory\n* Advertise MCP server via Bonjour and show local host name\n* Move automatic unlock to its own page and apply changes live\n* Simplify server start and stop with MCP\n* Init commit",
+          "downloadURL": "https://github.com/swipt-automation/swipt/releases/download/nightly/Swipt.ipa",
+          "size": 48174010,
+          "minOSVersion": "16.4"
         }
       ]
     },
@@ -1552,13 +1527,16 @@
       ]
     },
     {
-      "name": "WQFiles",
+      "name": "WQ Files",
       "bundleIdentifier": "cz.kolbi.wqfiles",
       "developerName": "kolbicz",
-      "subtitle": "File browser, app data manager and cache cleaner",
-      "localizedDescription": "File browser, app data manager and cache cleaner for iOS 27 (worse_query, no jailbreak).",
-      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/icon.png",
-      "tintColor": "#0D9EA8",
+      "subtitle": "File manager for iOS 26 and 27 (worse_query)",
+      "localizedDescription": "File browser, app data manager and cache cleaner for iOS 26 and 27, built on the worse_query sandbox technique. Browse other apps' containers, edit plists, hex and SQLite databases, and back up, restore or clear app data without a jailbreak or kernel exploit.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQFiles/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQFiles/images/home.jpeg"
+      ],
+      "tintColor": "#1E8FC7",
       "versions": [
         {
           "version": "0.9.8",
@@ -1567,6 +1545,54 @@
           "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.8/WQFiles.ipa",
           "size": 817121,
           "minOSVersion": "26.0"
+        }
+      ]
+    },
+    {
+      "name": "WQGuard",
+      "bundleIdentifier": "com.wqguard.app",
+      "developerName": "Kianuni",
+      "subtitle": "iOS 沙盒越权检测与侧载 IPA 审查工具",
+      "localizedDescription": "面向 iOS 26.2+ / iOS 27.x 的零依赖、100% 物理只读沙盒逃逸检测引擎、Mach-O 静态二进制审计与多端固件 CVE 防护系统",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQGuard/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQGuard/images/dashboard.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQGuard/images/firmware.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQGuard/images/ipa.jpeg"
+      ],
+      "tintColor": "#00C7A5",
+      "versions": [
+        {
+          "version": "1.2.1",
+          "date": "2026-11-12T16:49:46Z",
+          "localizedDescription": "## 🛡️ WQGuard v1.2.1 — 安全加固正式版 / Security Hardening Release\n\n纯 Swift 5.9+ 原生开发、零第三方依赖、100% 本地离线运行的 iOS 静态二进制沙盒逃逸审计工具与多端网络降级护盾。\nA native, zero-dependency, 100% offline iOS static binary sandbox-escape auditor and multi-client HTTP Brotli downgrade shield written in pure Swift 5.9+.\n\n---\n\n### 🔥 核心更新与安全修复 / Highlights & Security Fixes (v1.2.1)\n\n1. **CSBlob 双槽（XML + Apple CoreEntitlements DER）完整解码与防遮蔽合并**\n   - 完整实现 Apple `CoreEntitlements` v1 (`0xfade7172`) `[APPLICATION 16]` (`0x70`)、`[CONTEXT 16]` (`0xb0`) 及 ITU-T X.690 多字节高 Tag ASN.1 DER 解析，并与 XML 槽位 (`0xfade7171`) 跨切片递归合并数组与布尔权限，彻底阻断“在 XML 槽写入空数组或 `<false/>` 遮蔽 DER 槽真实越权项”的静态审计绕过。\n2. **Mach-O 全 ARM 切片并集审计 + ObjC 选择器提取 + 全量 `.appex` 扩展深扫**\n   - 对 Universal/FAT 二进制取全部可执行 ARM 切片（`arm64` + `arm64e` 等）的并集进行符号、字符串与 `__objc_methname` 选择器提取，防止 `arm64` 良性壳遮蔽 `arm64e` 恶意载荷。\n   - 覆盖主程序、`Frameworks/`、`.app/Dylibs/`、`.app/DynamicLibraries/` 以及 `PlugIns/*.appex` 与 iOS 16+ `Extensions/*.appex` 全部扩展的独立 CSBlob 权限与二进制静态审计；原生支持 `.ipa` 与 `.tipa` 包。\n   - 无 App Group 权限但调用 `fsgetpath` / `container_object_get_path` 等沙盒侦察原语的样本前置直接标定高危（`CM-05` / `bad_query`）。\n3. **沙盒按需隔离解包与 64 KB 流式配额加固**\n   - 组件级路径穿越拦截（支持合法双点文件名如 `icon..png`，阻断 `../` 越界）、64 KB 分块流式 `inflate` 单条目与全包累计解压配额熔断（兼容 ZIP64 `0x0001` 扩展头并拦截 0 字节伪造头部膨胀炸弹），以及临时隔离区 `S_IFLNK` 逃逸符号链接强制剥离。\n4. **第三方侧载工具严格零信任策略（Strict Zero-Trust Policy）**\n   - 移除对所有第三方侧载器与开发辅助工具（`Feather`、`SideStore`、`AltStore`、`ESign / 全能签`、`GBox`、`Scarlet`、`TrollStore`、`LocalDevVPN`、`StikDebug` 等）的任何内置默认白名单豁免（一律列入前置留意或按命中载荷定级）；内置白名单仅对 `WQGuard` 本身执行精确 Bundle ID、全量 App Group 与全量威胁指标子集强校验。\n   - 支持中英混排与驼峰边界的品牌仿冒词元匹配（同时消除对 `NetGuard`、`PostgREST`、`GitGraph`、`ZeroTrust` 等合法应用的误报），并强制 `LockdownInstProxyClient` STARTTLS 叶子证书钉扎校验 Fail-Closed。\n5. **五大代理客户端 Brotli 降级护盾（`CVE-2026-111497`）与固件补丁基线校准**\n   - 修复 Surge `.sgmodule` 远程 `script-path` 挂载规范，统一加固 Surge / Shadowrocket / Loon / Stash / Quantumult X 响应头拦截脚本（大小写无关遍历与重复头合并检测，返回顶层 `403` 零响应体解压阻断）。\n   - 固件雷达新增识别 Apple 官方在 `iOS 27.0`、`iOS 26.7.1` 与 `iOS 18.7.11` 发布的 `CVE-2026-86950` 安全回移植补丁基线。\n   - *防御边界提示*：代理层护盾管辖标准 HTTP/1.1 & HTTP/2 头部协商；若面临高危定向威胁，建议在客户端禁用 QUIC/HTTP3 并叠加开启 iOS 系统「锁定模式（Lockdown Mode）」以禁用 WebKit `.woff2` 网页字体渲染。\n\n---\n\n### 📦 发行附件说明 / Release Assets\n\n| 文件 / Asset | 用途 / Description |\n|---|---|\n| `WQGuard_v1.2.1.ipa` | iOS 独立侧载安装包（兼容 iOS 16.0+，已构建真机 `arm64` Release 包） |\n| `WQGuard-Brotli-Shield.sgmodule` | **Surge iOS / Mac** 护盾模块 |\n| `WQGuard-Brotli-Shield.module` | **Shadowrocket (小火箭)** 护盾模块 |\n| `WQGuard-Brotli-Shield.conf` | **Quantumult X (圈 X)** 重写资源 |\n| `WQGuard-Brotli-Shield.plugin` | **Loon** 护盾插件 |\n| `WQGuard-Brotli-Shield.stoverride` | **Stash** 覆写规则 |\n\n### ✅ 验证记录 / Verification\n\n- `swift test --disable-sandbox -Xswiftc -strict-concurrency=complete`: **681 / 681 tests passing (0 failures)** across 32 XCTest suites (`26` test files), including empirical `/usr/bin/codesign --generate-entitlement-der`, `/usr/bin/lipo` `arm64`+`arm64e`, and `JavaScriptCore` runtime verification.",
+          "downloadURL": "https://github.com/Kianuni/WQGuard/releases/download/v1.2.1/WQGuard_v1.2.1.ipa",
+          "size": 2007635,
+          "minOSVersion": "16.0"
+        }
+      ]
+    },
+    {
+      "name": "WQToolkit",
+      "bundleIdentifier": "com.zhangfuhao.wqtoolkit",
+      "developerName": "MchinaMd57764",
+      "subtitle": "File browser and maintenance panel for your own app containers",
+      "localizedDescription": "An iOS toolkit built on an App Group container-query primitive: browse, clean and inspect your own app data containers without a jailbreak. Includes a file browser, cache scan, device info, a MobileGestalt cache panel and data lenses, with a bilingual UI and iPhone/iPad layouts.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQToolkit/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQToolkit/images/files.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQToolkit/images/settings.jpeg",
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQToolkit/images/tweaks.jpeg"
+      ],
+      "tintColor": "#6090D0",
+      "versions": [
+        {
+          "version": "1.0",
+          "date": "2026-11-11T22:59:56Z",
+          "localizedDescription": "iOS 27 only. Unsigned build - it contains no signing material, no profile and no team ID.\n\n**Assets**\n- `WQToolkit-unsigned.ipa` - 4.6 MB. Re-sign it with your own developer identity and an App Group entitlement before installing.\n- `WQToolkit_source.tar.gz` - source snapshot (Xcode project included).\n\nNo jailbreak, no Mac at runtime. The app only reaches its own containers and its own App Groups; cross-app access is out of scope.\n\nTested on iPhone 15 Pro Max, iOS 27.3.",
+          "downloadURL": "https://github.com/MchinaMd57764/WQToolkit/releases/download/v1.0/WQToolkit-unsigned.ipa",
+          "size": 4819436,
+          "minOSVersion": "27.0"
         }
       ]
     },
@@ -1622,12 +1648,12 @@
   "news": [
     {
       "appID": "cz.kolbi.wqfiles",
-      "title": "WQFiles 0.9.8 · 14 Nov 2026",
-      "identifier": "WQFiles-release-v0.9.8",
-      "caption": "WQFiles 0.9.8 is available.",
+      "title": "WQ Files 0.9.8 · 14 Nov 2026",
+      "identifier": "WQ Files-release-v0.9.8",
+      "caption": "WQ Files 0.9.8 is available.",
       "date": "2026-11-14T18:14:23Z",
-      "tintColor": "#0D9EA8",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
+      "tintColor": "#1E8FC7",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
       "notify": true,
       "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.8"
     },
@@ -1665,6 +1691,17 @@
       "url": "https://github.com/LinkPass888/Kazumi-Swift/releases/tag/3.0.6"
     },
     {
+      "appID": "com.ishtiaqsyed.StatsForIOS",
+      "title": "Stats 0.3.15 · 14 Nov 2026",
+      "identifier": "Stats-release-v0.3.22",
+      "caption": "Stats 0.3.15 is available.",
+      "date": "2026-11-14T12:37:54Z",
+      "tintColor": "#2090F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ishtiaq156/stats/releases/tag/v0.3.22"
+    },
+    {
       "appID": "sb.moe.kumone-ios",
       "title": "Kumone 0.3.37 · 14 Nov 2026",
       "identifier": "Kumone-release-v0.3.37",
@@ -1698,17 +1735,6 @@
       "url": "https://github.com/thebcd69/bcd-games/releases/tag/v0.1.659"
     },
     {
-      "appID": "com.mengangs.Cloudn",
-      "title": "Cloudn 1.4.2 · 14 Nov 2026",
-      "identifier": "Cloudn-release-v1.4.2",
-      "caption": "Cloudn 1.4.2 is available.",
-      "date": "2026-11-14T07:41:19Z",
-      "tintColor": "#B4532F",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Cloudn/images/news.png",
-      "notify": true,
-      "url": "https://github.com/mengangs/Cloudn/releases/tag/v1.4.2"
-    },
-    {
       "appID": "app.local.iPadn",
       "title": "iPadn 2.1.1 · 14 Nov 2026",
       "identifier": "iPadn-release-v2.1.1",
@@ -1720,6 +1746,17 @@
       "url": "https://github.com/mengangs/ipadn/releases/tag/v2.1.1"
     },
     {
+      "appID": "io.nekohasekai.swipt",
+      "title": "Swipt 0.1.0 · 14 Nov 2026",
+      "identifier": "Swipt-release-nightly",
+      "caption": "Swipt 0.1.0 is available.",
+      "date": "2026-11-14T04:28:34Z",
+      "tintColor": "#455A64",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Swipt/images/news.png",
+      "notify": true,
+      "url": "https://github.com/swipt-automation/swipt/releases/tag/nightly"
+    },
+    {
       "appID": "com.christianselig.Apollo",
       "title": "Apollo for Reddit - GLASS 4.1.0 · 14 Nov 2026",
       "identifier": "Apollo for Reddit - GLASS-release-v1.15.11_4.1.0",
@@ -1729,17 +1766,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Apollo-Reborn/images/news.png",
       "notify": true,
       "url": "https://github.com/Apollo-Reborn/Apollo-Reborn/releases/tag/v1.15.11_4.1.0"
-    },
-    {
-      "appID": "com.mori.downloader",
-      "title": "Mori 4.6.0 · 14 Nov 2026",
-      "identifier": "Mori-release-v4.6.0",
-      "caption": "Mori 4.6.0 is available.",
-      "date": "2026-11-14T01:31:23Z",
-      "tintColor": "#27282A",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Mori/images/news.png",
-      "notify": true,
-      "url": "https://github.com/coflyn/Mori/releases/tag/v4.6.0"
     },
     {
       "appID": "com.ligg.anime_flow",
@@ -1775,17 +1801,6 @@
       "url": "https://github.com/hugeBlack/OpenParsec/releases/tag/2.0.0"
     },
     {
-      "appID": "com.ios151.insav",
-      "title": "INSAV 1.3.1-6 · 13 Nov 2026",
-      "identifier": "INSAV-release-v1.3.1-6",
-      "caption": "INSAV 1.3.1-6 is available.",
-      "date": "2026-11-13T05:33:07Z",
-      "tintColor": "#E11D48",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/INSAV/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ios151/Insav-releases/releases/tag/v1.3.1-6"
-    },
-    {
       "appID": "com.altman.moviepilot",
       "title": "MoviePilotLite 1.3.3 · 13 Nov 2026",
       "identifier": "MoviePilotLite-release-release-v1.3.3-2026-11-13",
@@ -1808,6 +1823,28 @@
       "url": "https://github.com/pookjw/HermesEnabler/releases/tag/1.5.4"
     },
     {
+      "appID": "com.wqguard.app",
+      "title": "WQGuard 1.2.1 · 12 Nov 2026",
+      "identifier": "WQGuard-release-v1.2.1",
+      "caption": "WQGuard 1.2.1 is available.",
+      "date": "2026-11-12T16:49:46Z",
+      "tintColor": "#00C7A5",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQGuard/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Kianuni/WQGuard/releases/tag/v1.2.1"
+    },
+    {
+      "appID": "com.jbdotparty.Erosion",
+      "title": "Erosion-CN 0.9.1 · 12 Nov 2026",
+      "identifier": "Erosion-CN-release-v0.9.1",
+      "caption": "Erosion-CN 0.9.1 is available.",
+      "date": "2026-11-12T13:06:38Z",
+      "tintColor": "#D07030",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Erosion-CN/images/news.png",
+      "notify": true,
+      "url": "https://github.com/Kianuni/Erosion-CN/releases/tag/v0.9.1"
+    },
+    {
       "appID": "com.example.kazumi",
       "title": "Kazumi 2.4.4 · 12 Nov 2026",
       "identifier": "Kazumi-release-2.4.4",
@@ -1817,6 +1854,17 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Kazumi/images/news.png",
       "notify": true,
       "url": "https://github.com/Predidit/Kazumi/releases/tag/2.4.4"
+    },
+    {
+      "appID": "com.zhangfuhao.wqtoolkit",
+      "title": "WQToolkit 1.0 · 11 Nov 2026",
+      "identifier": "WQToolkit-release-v1.0",
+      "caption": "WQToolkit 1.0 is available.",
+      "date": "2026-11-11T22:59:56Z",
+      "tintColor": "#6090D0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/WQToolkit/images/news.png",
+      "notify": true,
+      "url": "https://github.com/MchinaMd57764/WQToolkit/releases/tag/v1.0"
     },
     {
       "appID": "com.neogamelab.neostation",
@@ -1982,17 +2030,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Husk/images/news.png",
       "notify": true,
       "url": "https://github.com/Leviidev/Husk/releases/tag/3.4"
-    },
-    {
-      "appID": "com.ios151.one",
-      "title": "One 1.7.1-22 · 04 Nov 2026",
-      "identifier": "One-release-v1.7.1-22",
-      "caption": "One 1.7.1-22 is available.",
-      "date": "2026-11-04T16:15:28Z",
-      "tintColor": "#000000",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/One/images/news.png",
-      "notify": true,
-      "url": "https://github.com/ios151/One-releases/releases/tag/v1.7.1-22"
     },
     {
       "appID": "com.willfaust.madeora",
@@ -2356,17 +2393,6 @@
       "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/DolphiniOS/images/news.png",
       "notify": true,
       "url": "https://github.com/OatmealDome/dolphin-ios/releases/tag/v5.0.0b6"
-    },
-    {
-      "appID": "com.gopeed.gopeed",
-      "title": "Gopeed 1.9.3 · 18 Mar 2026",
-      "identifier": "Gopeed-release-v1.9.3",
-      "caption": "Gopeed 1.9.3 is available.",
-      "date": "2026-03-18T12:54:20Z",
-      "tintColor": "#5DC76C",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Gopeed/images/news.png",
-      "notify": true,
-      "url": "https://github.com/GopeedLab/gopeed/releases/tag/v1.9.3"
     },
     {
       "appID": "com.macxk.KMusic",
