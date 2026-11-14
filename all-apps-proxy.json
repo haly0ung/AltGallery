@@ -964,6 +964,25 @@
       ]
     },
     {
+      "name": "Mori",
+      "bundleIdentifier": "com.mori.downloader",
+      "developerName": "coflyn",
+      "subtitle": "Save anything, from anywhere.",
+      "localizedDescription": "Save videos, photos, and audio from 16 platforms with built-in media tools. No watermarks, accounts, or tracking. Everything runs locally on your device.",
+      "iconURL": "https://gh-proxy.com/https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Mori/icon.png",
+      "tintColor": "#27282A",
+      "versions": [
+        {
+          "version": "4.6.0",
+          "date": "2026-11-14T01:31:23Z",
+          "localizedDescription": "# What's New in Mori 4.6.0\r\n\r\n### New Features & Enhancements\r\n\r\n* **Built-in Offline & Online Tools Suite**: Dedicated utility tab featuring a live browser media sniffer (HLS & stream interception with tracker/ad filtering), offline video-to-audio extractor (WAV/MP3 via Web Audio API), client-side image converter & compressor (WebP/JPG/PNG), PDF document compressor, multi-platform username checker (20+ networks), anime scene reverse search (trace.moe), TikTok profile inspector, and shortlink resolver.\r\n* **In-App APK Updater & Direct GitHub Installs**: Direct in-app update flow for Android detecting new GitHub releases, displaying localized changelog popups across 9 languages, and downloading APKs with in-app progress ring and package installer trigger.\r\n* **Platform-Specific iOS Update Routing**: Tailored update modal for iOS detecting platform environment, calculating `.ipa` package size, and routing users directly to `.ipa` browser download or GitHub Release page.\r\n* **Template-Based Filenames & Persistent Counters (#21)**: Custom file naming patterns (`{platform}`, `{date}`, `{time}`, `{quality}`, `{num}`, `{title}`) with monotonic sequential counters per platform.\r\n* **Real-Time Download Progression (#22)**: Enhanced progress tracking for chunked streams with live byte counters, transfer speed, connection stall detection, and storage write status.\r\n* **Android MediaStore & Gallery Instant Sorting**: Scans newly downloaded media with refreshed timestamps so files appear at the top of device gallery and music apps under \"Recent\" or \"Today\".\r\n\r\n### Bug Fixes & Scraper Repairs\r\n\r\n* **YouTube Server 2 Migration**: Migrated YouTube Server 2 to `ytmp3.gl` (`api.ytmp3.gl`) for reliable MP3 and MP4 stream conversions.\r\n* **Bilibili Multi-Part Parameter Preservation (#23)**: Preserved `?p=` episode parameter when sanitizing Bilibili URLs so multi-part video links aren't deduped into part 1 during batch downloads.\r\n* **Concurrent Downloads & Wake-Lock (#24)**: Fixed Android foreground service and wake-lock terminating prematurely when multiple downloads run concurrently.\r\n* **Share History Limits (#24)**: Aligned ShareActivity history truncation with user-configured `mori_history_limit` so favorited items are preserved.\r\n* **Background State Exception (#24)**: Fixed missing `pauseAllMedia` import throwing ReferenceError when the app enters the background.\r\n* **Preview Modal Missing File Status**: Fixed false `(File missing)` status on audio and music cards by mapping audio MIME types dynamically, rendering proper music placeholders, and detecting media readiness via HTML5 audio events.\r\n* **Upstream Security Upgrade (#25)**: Upgraded `proxy-addr` to 2.0.8 resolving CVE vulnerability.\r\n\r\n### Performance & Reliability\r\n\r\n* **Stale OTA Patch Auto-Purge (#24)**: Automatically purges legacy or stale OTA scraper patches when a newer bundled core version is detected.\r\n\r\n\r\n**Full Changelog**: https://github.com/coflyn/Mori/compare/v4.5.2...v4.6.0",
+          "downloadURL": "https://gh-proxy.com/https://github.com/coflyn/Mori/releases/download/v4.6.0/Mori-v4.6.0-iOS-Unsigned.ipa",
+          "size": 2179675,
+          "minOSVersion": "14.0"
+        }
+      ]
+    },
+    {
       "name": "Mornye",
       "bundleIdentifier": "com.zarz.mornye",
       "developerName": "zarzet",
@@ -1710,6 +1729,17 @@
       "imageURL": "https://gh-proxy.com/https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Apollo-Reborn/images/news.png",
       "notify": true,
       "url": "https://github.com/Apollo-Reborn/Apollo-Reborn/releases/tag/v1.15.11_4.1.0"
+    },
+    {
+      "appID": "com.mori.downloader",
+      "title": "Mori 4.6.0 · 14 Nov 2026",
+      "identifier": "Mori-release-v4.6.0",
+      "caption": "Mori 4.6.0 is available.",
+      "date": "2026-11-14T01:31:23Z",
+      "tintColor": "#27282A",
+      "imageURL": "https://gh-proxy.com/https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Mori/images/news.png",
+      "notify": true,
+      "url": "https://github.com/coflyn/Mori/releases/tag/v4.6.0"
     },
     {
       "appID": "com.ligg.anime_flow",
