@@ -16,11 +16,11 @@
       "tintColor": "#B4532F",
       "versions": [
         {
-          "version": "1.4.1",
-          "date": "2026-10-24T03:52:30Z",
-          "localizedDescription": "# Cloudn 1.4.1\n\n这一版提升解析速度，并让网页嗅探更快找到视频。\n\n## 解析更快\n\n- **抖音**：网页验证与分享页两条路线同时进行，谁先拿到结果用谁。以前要等网页验证失败（最长 40 秒）才换分享页。\n- **抖音、Facebook、小黑盒、快手主页**：输入框认出这类链接时提前做好准备，点「解析」后少等一次启动。\n- **哔哩哔哩**：登录后字幕与视频流同时获取；抖音探测画质改为同时进行。\n- **重复解析秒开**：10 分钟内再次解析同一链接（从「最近」点开、返回再进）直接用上次的结果。解析失败不保留，登录或切换账号后会重新解析。\n\n## 网页嗅探\n\n- 打开网页的同时检查页面源码，源码里直接写着的视频、音频地址不用等播放就先列出来；找不到时和以前一样，播放后自动抓取。\n\n## 诊断\n\n- 诊断日志会记录每次解析各步骤的用时（只记平台和秒数，不记链接）。遇到解析慢，可在「设置」导出日志反馈。\n\n## 安装\n\n下载下方附件里的 `Cloudn-v1.4.1.ipa`，自行签名后安装（需要 iOS 17 及以上）；已安装的用户可在「设置 › 检查更新」里获取。",
-          "downloadURL": "https://github.com/mengangs/Cloudn/releases/download/v1.4.1/Cloudn-v1.4.1.ipa",
-          "size": 8979537,
+          "version": "1.4.2",
+          "date": "2026-11-14T07:41:19Z",
+          "localizedDescription": "# Cloudn 1.4.2\n\n这一版新增 SideStore / AltStore 侧载软件源支持，修复 Instagram 网页登录点「完成」卡住的问题，并带来多项稳定性、解析与性能优化。\n\n## 新增与改进\n\n- **SideStore / AltStore 软件源**：新增 [altstore.json](https://raw.githubusercontent.com/mengangs/Cloudn/main/altstore.json) 订阅源并在发版时自动更新；在「设置 › 更新 › 添加侧载软件源」中可一键添加到 SideStore / AltStore 或复制源地址。\n- **Instagram 网页登录修复**：支持从 `sessionid` 提取用户 ID 并补全 `ds_user_id`，实时合并页面 `document.cookie`，放宽非登录页重定向时的校验误判，并在未检测到登录态或校验失败时弹出明确提示。\n- **并发与稳定性优化**：加强下载与解析任务防重入保护、完善各网盘/视频解析器与分享扩展边界处理，提升列表滚动、实时活动与无障碍体验。\n\n## 安装\n\n推荐通过 SideStore / AltStore 订阅本仓库软件源直接接收更新；也可下载下方附件里的 `Cloudn-v1.4.2.ipa` 自行签名后安装（需要 iOS 17 及以上）。",
+          "downloadURL": "https://github.com/mengangs/Cloudn/releases/download/v1.4.2/Cloudn-v1.4.2.ipa",
+          "size": 9034290,
           "minOSVersion": "17.0"
         }
       ]
@@ -64,6 +64,25 @@
       ]
     },
     {
+      "name": "Mori",
+      "bundleIdentifier": "com.mori.downloader",
+      "developerName": "coflyn",
+      "subtitle": "Save anything, from anywhere.",
+      "localizedDescription": "Save videos, photos, and audio from 16 platforms with built-in media tools. No watermarks, accounts, or tracking. Everything runs locally on your device.",
+      "iconURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Mori/icon.png",
+      "tintColor": "#27282A",
+      "versions": [
+        {
+          "version": "4.6.0",
+          "date": "2026-11-14T01:31:23Z",
+          "localizedDescription": "# What's New in Mori 4.6.0\r\n\r\n### New Features & Enhancements\r\n\r\n* **Built-in Offline & Online Tools Suite**: Dedicated utility tab featuring a live browser media sniffer (HLS & stream interception with tracker/ad filtering), offline video-to-audio extractor (WAV/MP3 via Web Audio API), client-side image converter & compressor (WebP/JPG/PNG), PDF document compressor, multi-platform username checker (20+ networks), anime scene reverse search (trace.moe), TikTok profile inspector, and shortlink resolver.\r\n* **In-App APK Updater & Direct GitHub Installs**: Direct in-app update flow for Android detecting new GitHub releases, displaying localized changelog popups across 9 languages, and downloading APKs with in-app progress ring and package installer trigger.\r\n* **Platform-Specific iOS Update Routing**: Tailored update modal for iOS detecting platform environment, calculating `.ipa` package size, and routing users directly to `.ipa` browser download or GitHub Release page.\r\n* **Template-Based Filenames & Persistent Counters (#21)**: Custom file naming patterns (`{platform}`, `{date}`, `{time}`, `{quality}`, `{num}`, `{title}`) with monotonic sequential counters per platform.\r\n* **Real-Time Download Progression (#22)**: Enhanced progress tracking for chunked streams with live byte counters, transfer speed, connection stall detection, and storage write status.\r\n* **Android MediaStore & Gallery Instant Sorting**: Scans newly downloaded media with refreshed timestamps so files appear at the top of device gallery and music apps under \"Recent\" or \"Today\".\r\n\r\n### Bug Fixes & Scraper Repairs\r\n\r\n* **YouTube Server 2 Migration**: Migrated YouTube Server 2 to `ytmp3.gl` (`api.ytmp3.gl`) for reliable MP3 and MP4 stream conversions.\r\n* **Bilibili Multi-Part Parameter Preservation (#23)**: Preserved `?p=` episode parameter when sanitizing Bilibili URLs so multi-part video links aren't deduped into part 1 during batch downloads.\r\n* **Concurrent Downloads & Wake-Lock (#24)**: Fixed Android foreground service and wake-lock terminating prematurely when multiple downloads run concurrently.\r\n* **Share History Limits (#24)**: Aligned ShareActivity history truncation with user-configured `mori_history_limit` so favorited items are preserved.\r\n* **Background State Exception (#24)**: Fixed missing `pauseAllMedia` import throwing ReferenceError when the app enters the background.\r\n* **Preview Modal Missing File Status**: Fixed false `(File missing)` status on audio and music cards by mapping audio MIME types dynamically, rendering proper music placeholders, and detecting media readiness via HTML5 audio events.\r\n* **Upstream Security Upgrade (#25)**: Upgraded `proxy-addr` to 2.0.8 resolving CVE vulnerability.\r\n\r\n### Performance & Reliability\r\n\r\n* **Stale OTA Patch Auto-Purge (#24)**: Automatically purges legacy or stale OTA scraper patches when a newer bundled core version is detected.\r\n\r\n\r\n**Full Changelog**: https://github.com/coflyn/Mori/compare/v4.5.2...v4.6.0",
+          "downloadURL": "https://github.com/coflyn/Mori/releases/download/v4.6.0/Mori-v4.6.0-iOS-Unsigned.ipa",
+          "size": 2179675,
+          "minOSVersion": "14.0"
+        }
+      ]
+    },
+    {
       "name": "One",
       "bundleIdentifier": "com.ios151.one",
       "developerName": "ios151",
@@ -92,11 +111,11 @@
       "tintColor": "#0D9EA8",
       "versions": [
         {
-          "version": "0.9.6",
-          "date": "2026-11-13T12:49:20Z",
-          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2. Tested on iOS 27.0.1, 27.2.1, 26.7.1 and the 27.3 beta (confirmed by a user).\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.6\n\n## New\n\n- **Search Inside Folders…** (••• menu): finds names in all subfolders, with progress and **Stop**.\n- **Largest Files** (••• menu): the 100 biggest files below a folder, to see where storage goes.\n- **Get Info** (long-press): path, kind, size (folders counted), dates, owner, permissions, inode and a file's SHA-256. Tap a row to copy it.\n- **Duplicate** and **Copy to Folder…** (long-press): copy files and folders, also into other apps' data, like Move.\n- **Favorites:** add a folder from its ••• menu; they're listed under Tools.\n- **Reopen Last Folder** ([#41](https://github.com/kolbicz/WQFiles/issues/41)): WQ Files starts in the folder you were in. It's a switch on the start screen.\n- **Check for Updates** ([#41](https://github.com/kolbicz/WQFiles/issues/41)): a note on the start screen when a new version is out.\n  - **What's sent:** WQ Files reads the public release list on GitHub at most twice a day and sends nothing about your device. This is its only network access.\n  - **Turning it off:** use the switch on the start screen.\n- **Open ZIP files by tapping them** ([#41](https://github.com/kolbicz/WQFiles/issues/41)): **Extract and Open** unpacks it next to itself and opens the folder. **Open as File** shows the file as before.\n- **Thai** ([#52](https://github.com/kolbicz/WQFiles/issues/52)).\n\n## Changed\n\n- **SQLite save** writes through SQLite itself, which takes care of the database's journal and WAL files, so a save is safer if WQ Files is closed midway.\n- **App restore** copies and checks the backup in a private folder first, and installs exactly what was checked.\n- **Replace All** when importing only replaces the file versions shown in the question; a file that changed meanwhile is imported under a new name.\n- **Turkish and Thai:** clearer wording.\n\n## Fixed\n\n- **App names and some app folders missing** on some devices (e.g. iOS 26.1): when the app database uses a layout WQ Files doesn't know, it now works out where names and folders are from the database itself, and remembers it for that iOS version. App identities, which decide where backups go, still only come from the app's own folder tag or a known layout. WQ Files also uses the newest database file when iOS keeps an old one, and the Log lists them.\n- **App backups could come out empty** when WQ Files didn't have access to the app's folder yet; it worked on the second or third try. Backup now fails with \"try again\" instead, and an empty backup is never restored (restoring one would empty the app's data).\n\n## Credit\n\nSandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean), Reinascape (Russian). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `d15feaf0fb82dd754b78de3a0e9d210db0cc1ebd83748dd1980e922d2183c2c6`",
-          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.6/WQFiles.ipa",
-          "size": 780279,
+          "version": "0.9.8",
+          "date": "2026-11-14T18:14:23Z",
+          "localizedDescription": "> **Requires:** iOS 27, or iOS 26.0 – 26.7.2. Tested on iOS 27.0.1, 27.2.1, 26.7.1 and the 27.3 beta (confirmed by a user).\n> **Needs:** a sideloading tool that keeps the App Group entitlement; see [Signing](https://github.com/kolbicz/WQFiles#signing-the-app-group) in the README.\n\n# Worse Query Files 0.9.8\n\n## New\n\n- **Reset Access Cache in Settings:** under **Settings → Troubleshooting**, in both designs. Until now it only appeared on the startup check screen when sandbox access failed, so it couldn't be reached after **Continue Anyway** or when access broke later. It puts WQ Files' own cache folder in the App Group back; nothing is deleted.\n\n## Changed\n\n- **Clearer Log when access is blocked:** when the access cache can't be repaired automatically, the Log now says why and what it found (swap marker, preserved Caches folder, what Caches is now) and points to **Reset Access Cache**. The same failure is logged once instead of for every folder.\n- **Translations** for the new texts in all languages.\n\n## Credit\n\nNew design: GpGp700. Sandbox technique: [worse_query](https://github.com/forcequitOS/worse_query) by Taj C (forcequit). Container enumeration: [KAMUI](https://github.com/murk-sus/kamui-escape) by murk-sus. Translations: iosrxwy (Simplified Chinese), hfip (Arabic), hooray804 (Korean), Reinascape (Russian), buraakkcayir (Turkish review). Thanks to everyone who sent Logs and ideas. GPL-3.0-or-later.\n\nSHA-256 of WQFiles.ipa: `7459ded30f5aa740a49060e1497ddf7eafa7b0152290b8104d336338de9a050c`",
+          "downloadURL": "https://github.com/kolbicz/WQFiles/releases/download/v0.9.8/WQFiles.ipa",
+          "size": 817121,
           "minOSVersion": "26.0"
         }
       ]
@@ -105,14 +124,36 @@
   "news": [
     {
       "appID": "cz.kolbi.wqfiles",
-      "title": "WQFiles 0.9.6 · 13 Nov 2026",
-      "identifier": "WQFiles-release-v0.9.6",
-      "caption": "WQFiles 0.9.6 is available.",
-      "date": "2026-11-13T12:49:20Z",
+      "title": "WQFiles 0.9.8 · 14 Nov 2026",
+      "identifier": "WQFiles-release-v0.9.8",
+      "caption": "WQFiles 0.9.8 is available.",
+      "date": "2026-11-14T18:14:23Z",
       "tintColor": "#0D9EA8",
       "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/WQFiles/images/news.png",
       "notify": true,
-      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.6"
+      "url": "https://github.com/kolbicz/WQFiles/releases/tag/v0.9.8"
+    },
+    {
+      "appID": "com.mengangs.Cloudn",
+      "title": "Cloudn 1.4.2 · 14 Nov 2026",
+      "identifier": "Cloudn-release-v1.4.2",
+      "caption": "Cloudn 1.4.2 is available.",
+      "date": "2026-11-14T07:41:19Z",
+      "tintColor": "#B4532F",
+      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Cloudn/images/news.png",
+      "notify": true,
+      "url": "https://github.com/mengangs/Cloudn/releases/tag/v1.4.2"
+    },
+    {
+      "appID": "com.mori.downloader",
+      "title": "Mori 4.6.0 · 14 Nov 2026",
+      "identifier": "Mori-release-v4.6.0",
+      "caption": "Mori 4.6.0 is available.",
+      "date": "2026-11-14T01:31:23Z",
+      "tintColor": "#27282A",
+      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Mori/images/news.png",
+      "notify": true,
+      "url": "https://github.com/coflyn/Mori/releases/tag/v4.6.0"
     },
     {
       "appID": "com.ios151.insav",
@@ -135,17 +176,6 @@
       "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/One/images/news.png",
       "notify": true,
       "url": "https://github.com/ios151/One-releases/releases/tag/v1.7.1-22"
-    },
-    {
-      "appID": "com.mengangs.Cloudn",
-      "title": "Cloudn 1.4.1 · 24 Oct 2026",
-      "identifier": "Cloudn-release-v1.4.1",
-      "caption": "Cloudn 1.4.1 is available.",
-      "date": "2026-10-24T03:52:30Z",
-      "tintColor": "#B4532F",
-      "imageURL": "https://raw.githubusercontent.com/haly0ung/AltGallery/refs/heads/master/apps/Cloudn/images/news.png",
-      "notify": true,
-      "url": "https://github.com/mengangs/Cloudn/releases/tag/v1.4.1"
     },
     {
       "appID": "com.gopeed.gopeed",
