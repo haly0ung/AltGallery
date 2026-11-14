@@ -26,3 +26,7 @@ dist/
 /apps/*/apps.json
 /apps/*/apps-proxy.json
 all-apps-proxy.json
+
+# GitHub Pages build output
+_site/
+.claude/worktrees

@@ -1,0 +1,45 @@
+{
+  "name": "Stats",
+  "subtitle": "Stats AltStore source by AltGallery & AltGen",
+  "description": "Auto-updated AltStore source for Stats",
+  "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/icon.png",
+  "website": "https://github.com/ishtiaq156/stats",
+  "tintColor": "#2090F0",
+  "apps": [
+    {
+      "name": "Stats",
+      "bundleIdentifier": "com.ishtiaqsyed.StatsForIOS",
+      "developerName": "ishtiaq156",
+      "subtitle": "Your Mac's activity, at a glance",
+      "localizedDescription": "View your Mac's system activity on iPhone over a local encrypted connection. A native, local-first system monitor with a lightweight Mac companion and a mobile dashboard.",
+      "iconURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/icon.png",
+      "screenshots": [
+        "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/images/link.jpeg"
+      ],
+      "tintColor": "#2090F0",
+      "versions": [
+        {
+          "version": "0.3.15",
+          "date": "2026-11-14T12:37:54Z",
+          "localizedDescription": "Stats iPhone 0.3.15 keeps Paired Macs in Mac Connection Settings.\n\n## What's Changed\n\n- Removed the duplicate Paired Macs entry from Dashboard Settings.\n- Paired Macs remains available from Mac Connection Settings.\n\n## Download\n\n- **iPhone app · 0.3.15 (build 18):** `Stats-v0.3.15-iOS.ipa` (iOS 17+, arm64; unsigned for SideStore and AltStore).\n- **SHA-256:** `d44cfd7d0c87186e1ca42e12cf89106b8b2f8e24ed391f0c58bbfe3520120276`\n- Mac Companion 0.3.13 remains compatible.\n\n**Full Changelog:** https://github.com/ishtiaq156/stats/compare/v0.3.21...v0.3.22",
+          "downloadURL": "https://github.com/ishtiaq156/stats/releases/download/v0.3.22/Stats-v0.3.15-iOS.ipa",
+          "size": 2800963,
+          "minOSVersion": "17.0"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "appID": "com.ishtiaqsyed.StatsForIOS",
+      "title": "Stats 0.3.15 · 14 Nov 2026",
+      "identifier": "Stats-release-v0.3.22",
+      "caption": "Stats 0.3.15 is available.",
+      "date": "2026-11-14T12:37:54Z",
+      "tintColor": "#2090F0",
+      "imageURL": "https://raw.githubusercontent.com/bebound/AltGallery/refs/heads/master/apps/Stats/images/news.png",
+      "notify": true,
+      "url": "https://github.com/ishtiaq156/stats/releases/tag/v0.3.22"
+    }
+  ]
+}

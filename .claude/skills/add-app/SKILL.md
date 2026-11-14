@@ -136,6 +136,14 @@ change between apps.
    `detail.png`, `comment.png`). When a source was found in step 2, its
    `iconURL` / `screenshots` tell you exactly which files to grab.
 
+   ⚠️ **Screenshots the user provides are used exactly as given**
+   (attached files, a folder, an unpacked zip): copy them into
+   `apps/<AppName>/images/` keeping their original filenames and formats
+   (`.png`, `.jpg`/`.jpeg`, …), and point `[app] screenshots` at those exact
+   names. Never rename them to `home.png`/`detail.png` and never convert the
+   format. When the user supplies the set, it wins — skip the repo hunt, and
+   the missing-screenshots warning (step 10) does not apply.
+
    ⚠️ **If no screenshots can be found** (no `screenshots` field in the source,
    no `images`/`assets` folder in the repo, README links broken, etc.), still
    download the icon and finish the rest of the flow — just remember that the
@@ -212,8 +220,17 @@ change between apps.
 6. **Write `news.toml`** — copy `apps/PiliPlus/news.toml` the same way (it
    documents every optional `[colors]` key as a comment), then change only
    `name` and `tagline`. All keys are optional; leave the commented defaults
-   in place. Then render the shared promo image (AGENTS.md → [Generating News
-   Images]):
+   in place.
+
+   ⚠️ The `tagline` is the **abbreviated form of `subtitle`** drawn under the
+   app name on the image — do not reuse the subtitle verbatim, and do not
+   repeat words the name already carries ("PlayStation 3 emulator",
+   "iOS/iPadOS"). It must render at full size (72px) in at most two lines
+   (AGENTS.md → [The tagline](../AGENTS.md#the-tagline)); measure it with the
+   snippet there before rendering.
+
+   Then render the shared promo image (AGENTS.md → [Generating News
+   Images](../AGENTS.md#generating-news-images)):
    ```bash
    ./.venv/bin/python tools/render_news.py --out apps/<AppName>
    ```
@@ -248,16 +265,50 @@ change between apps.
 9. **Update README** — add the app to **Available Apps**, icon inline before
    the name:
    ```html
-   ### <a href="https://github.com/owner/name"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/<AppName>/icon.png" alt="<AppName> icon" width="24" align="top"> <AppName></a>
+   ### <img src="apps/<AppName>/icon.png" alt="<AppName> icon" width="24" align="top"> <a href="https://github.com/owner/name"><AppName></a>
    Short one-line description.
    ```
    ⚠️ Use `align="top"` on the icon — `align="center"` renders ~7px low on
-   GitHub.
+   GitHub. The icon sits **outside** the link, uses a **repo-relative** path
+   (`apps/<AppName>/icon.png`, never a `raw.githubusercontent.com` URL), and a
+   space separates it from the linked name.
 
    Then add the same entry to `README_CN.md` (the Chinese README linked from
    the language switcher under the title): identical heading and icon URL,
-   one-line description written in Chinese. Both READMEs share the same app
-   order, so the entry goes at the same position.
+   and a **Chinese** description line. Both READMEs share the same app order,
+   so the entry goes at the same position.
+
+   ⚠️ `config.toml` `[app] subtitle` is the anchor for all three texts
+   (AGENTS.md → [Three texts, one
+   anchor](../AGENTS.md#three-texts-one-anchor)): the README line **starts
+   with the subtitle** and may add one concrete detail after ` — `, drawn from
+   the project's own README (a requirement, a platform, a headline feature) —
+   never a rewording of the same sentence. `description` stays the upstream
+   paragraph.
+
+   ⚠️ The language rule is asymmetric (AGENTS.md → [README
+   Entries](../AGENTS.md#readme-entries)): `README.md` keeps each app in its
+   **own** language — a Chinese-only project keeps its Chinese description
+   there, an English app gets English — while `README_CN.md` is **always
+   Chinese**, so an English app's line is a translation. Never invent an
+   English blurb for a Chinese-only project. `config.toml` `subtitle` /
+   `description` follow `README.md` (the app's own language).
+
+   If the catalog text ends up English (an English app, or a Chinese app whose
+   `config.toml` fields are English), add the site's Chinese overlay entry to
+   `site/i18n/zh.json`, keyed by bundle identifier:
+
+   ```json
+   "app.example.Example": {
+     "subtitle": "副标题的翻译（短句，不含 README 的补充）",
+     "description": "config.toml 的 description 的翻译"
+   }
+   ```
+
+   An app whose catalog text is already Chinese needs no entry — the page
+   falls back to it. `python3 tools/build_site.py` folds the file into
+   `config.json` and warns about entries whose bundle identifier is not in the
+   catalog.
 
 10. **Warn if no screenshots were found** — this is the LAST step. If step 3
     could not obtain any screenshots (empty `apps/<AppName>/images/`, no
@@ -284,9 +335,12 @@ change between apps.
 - [ ] `apps/<AppName>/{config.toml, news.toml, icon.png, images/*}` all present
 - [ ] `icon.png` from the repo, or from the ipa via `tools/ipa_icon.py` when the repo has none — size checked, small size reported to the user
 - [ ] icon/screenshots hosted locally and referenced via `bebound/AltGallery` raw URLs (never the source's remote URLs)
+- [ ] user-supplied screenshots left untouched — original filenames and formats, referenced as-is in `[app] screenshots`
 - [ ] `apps.json` regenerated after the last config change; never hand-edited; gitignored (not committed)
 - [ ] `all-apps.json` NOT touched — CI workflow regenerates and commits it
 - [ ] `images/news.png` rendered; not auto-committed
 - [ ] README entry added to both `README.md` and `README_CN.md`, icon with `align="top"`
-- [ ] `README_CN.md` description written in Chinese
+- [ ] README line starts with `config.toml` `subtitle`, plus at most one detail clause
+- [ ] `README.md` keeps the project's own language, `README_CN.md` carries a Chinese description (translated when the app is English)
+- [ ] `site/i18n/zh.json` entry added when the catalog text is English (skipped when it is already Chinese)
 - [ ] if no screenshots could be found, the user was explicitly warned (never proceed silently)

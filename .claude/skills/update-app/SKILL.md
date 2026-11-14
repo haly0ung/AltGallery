@@ -187,11 +187,13 @@ which app was meant.
      is exactly the stale value this reset removes. Then re-render
      `images/news.png` (step 6); the old promo image is invalid too.
    - **Icon unchanged:** edit the existing file in place — header `--out`
-     path, `name` → new display name, `tagline` → a short version of the new
-     subtitle/description. Re-check a pinned color only when the brand/tint
-     changed: keep it if it still fits, update it (and its inline comment) when
-     it was derived from something stale, delete it when its reason no longer
-     exists.
+     path, `name` → new display name, `tagline` → an abbreviation of the new
+     `subtitle` that fits two full-size lines on the image and does not repeat
+     the name (AGENTS.md → [The
+     tagline](../AGENTS.md#the-tagline)). Re-check a pinned color only when the
+     brand/tint changed: keep it if it still fits, update it (and its inline
+     comment) when it was derived from something stale, delete it when its
+     reason no longer exists.
 
    Either way, refresh the commented "current result" values in the
    `[colors]` block so whoever edits the file next sees the palette actually
@@ -265,18 +267,29 @@ PY
    Replace the app's `###` heading and description line in **Available Apps**:
 
    ```html
-   ### <a href="https://github.com/<new-owner>/<repo>"><img src="https://raw.githubusercontent.com/bebound/AltGallery/master/apps/<NewName>/icon.png" alt="<display name> icon" width="24" align="top"> <display name></a>
+   ### <img src="apps/<NewName>/icon.png" alt="<display name> icon" width="24" align="top"> <a href="https://github.com/<new-owner>/<repo>"><display name></a>
    One-line description.
    ```
 
    - Keep `align="top"` on the icon (`align="center"` renders ~7px low).
+   - Icon outside the link, repo-relative `src` (no `raw.githubusercontent.com`),
+     one space before the linked name.
    - The heading text is the **display name**, which may differ from the
      folder name — do not blindly copy the folder.
    - Move the entry if the new display name changes its alphabetical
      position in the list.
    - Refresh the one-line description when the project's description changed.
+   - Re-anchor it on `config.toml` `[app] subtitle` after any subtitle change:
+     the line starts with the subtitle, then at most one detail clause
+     (AGENTS.md → [Three texts, one
+     anchor](../AGENTS.md#three-texts-one-anchor)).
    - Apply the same change to `README_CN.md` — identical heading and icon URL,
-     description line in Chinese. Both READMEs share the same app order.
+     description line in Chinese (`README.md` keeps the app's own language,
+     `README_CN.md` is always Chinese). Both READMEs share the same app order.
+   - Update the app's entry in `site/i18n/zh.json`: it is keyed by **bundle
+     identifier**, so a changed identifier needs the key renamed, and a
+     changed `subtitle` / `description` needs the entry retranslated. An app
+     whose catalog text is already Chinese has no entry there.
 
 9. **Sweep for stale references**
 
@@ -312,4 +325,5 @@ PY
 - [ ] `apps.json` regenerated via `./update.sh <NewName>`, never hand-edited, not committed
 - [ ] `all-apps.json` left modified in the working tree, not committed
 - [ ] README entry updated in both `README.md` and `README_CN.md` (href, icon `align="top"`, display name, Chinese description) and re-sorted if needed
+- [ ] `site/i18n/zh.json` entry renamed when the bundle identifier changed, retranslated when the subtitle/description changed
 - [ ] stale-reference grep clean or hits explained

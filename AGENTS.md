@@ -39,7 +39,7 @@ apps/<AppName>/
 ├── news.toml        # news image config (name, tagline, optional colors)
 ├── icon.png         # app icon
 ├── images/          # screenshots + news.png promo image
-│   ├── home.png     # screenshots (referenced from [app] screenshots)
+│   ├── home.png     # screenshot, listed in [app] screenshots (extension kept as-is)
 │   └── news.png     # generated promo image (referenced from [news] image_url)
 └── apps.json        # generated AltStore source (gitignored), do not hand-edit
 ```
@@ -106,6 +106,83 @@ in `git status` — leave them for the workflow to commit.) To refresh them
 immediately, run the `Update all-apps.json` workflow manually
 (`workflow_dispatch`).**
 
+## GitHub Pages Site
+
+The public catalog at https://altgallery.fromkk.com/ is a static page
+built from the generated sources:
+
+- `site/index.html`, `site/style.css`, `site/app.js` — the page. It fetches
+  `all-apps.json` (served beside it) at runtime and renders every image —
+  logos, icons, screenshots — from a copy under `media/`, so the
+  site hosts its own artwork and only links (release pages, ipa downloads,
+  AltStore sources) point at GitHub. The Direct/Mirror switch rewrites those
+  links through gh-proxy.com and subscribes to the prepared
+  `apps/<App>/apps-proxy.json` sources.
+- `site/i18n/zh.json` — the Chinese `subtitle` / `description` the page shows
+  while the language switch is on 中文, keyed by bundle identifier. It exists
+  because an AltStore source carries exactly one language per app
+  (`localizedDescription` is a plain string, with no per-locale variants), so
+  the Chinese text cannot live in `apps.json` without taking the original away
+  from English readers. `tools/build_site.py` folds every
+  `site/i18n/<lang>.json` into the generated `config.json`, so the page still
+  makes one data request. Both fields translate the matching `config.toml`
+  `[app]` field — the `subtitle` here is the short one-liner, **not** the
+  longer `README_CN.md` line. **An app with no entry keeps its catalog text**
+  — which is already Chinese for the Chinese-only projects — so the file only
+  covers apps whose catalog text is English, and a missing entry is never a
+  bug. Keep it in sync when moving an app (the key is its bundle identifier);
+  search matches every language, so a Chinese query finds an English app.
+- `tools/build_site.py` — validates `all-apps-proxy.json` against
+  `all-apps.json` (the proxy prefix is derived from the mirror), checks that
+  every per-app source exists, stages every displayed image from the working
+  tree into `_site/media/`, writes a generated `config.json` (the raw URL
+  prefixes, `mediaBase` and `mediaFiles`, which the page uses to map a raw URL
+  to its local copy, plus the `i18n` overlays), and stages the split site plus
+  both JSON files. Content hashes are added to the CSS/JS references only.
+
+  Staged images are optimized for the size they render at, which is where most
+  of the page's weight went: app icons are resized to 128×128 (the largest CSS
+  box is 84px, so 128 still covers a 2× display) and the site logo to 256×256,
+  screenshots are capped at 800px tall, and everything is re-encoded to WebP
+  and kept only when that is smaller than the original bytes — the constants
+  at the top of the script set each budget. An embedded ICC profile (most
+  screenshots are Display P3) is carried into the WebP, so colours do not
+  shift. Because the extension usually changes, `config.json`'s `mediaFiles`
+  maps each repository path to the file actually staged; a file that stays in
+  its original format keeps its path. Needs Pillow (`pip install pillow`;
+  the venv from `requirements.txt` has it), not stdlib only.
+- `.github/workflows/pages.yml` — builds and deploys only when the update
+  workflow finishes (an update run triggered by the push, including the
+  bot's own commits, which never trigger `push` workflows), plus manual
+  dispatch, so one push creates a single Pages deployment record. The
+  repository's Pages source must be set to "GitHub Actions".
+- `.github/workflows/pages-cloudflare.yml` — the same build, deployed to a
+  Cloudflare Pages project (name and production branch in its `env`) with
+  `cloudflare/wrangler-action@v4`, on the same triggers. It needs the
+  `CLOUDFLARE_API_TOKEN` (Cloudflare Pages: Edit) and `CLOUDFLARE_ACCOUNT_ID`
+  repository secrets, and the Pages project must be a Direct Upload one — a
+  Git-connected project is built by Cloudflare itself instead, and cannot be
+  deployed from here.
+
+The build also writes `_site/preview.html`, with CSS, JS and the catalog
+inlined; it draws images from `_site/media/`, so it opens straight from disk
+as long as it stays beside that directory:
+
+```bash
+python3 tools/build_site.py
+open _site/preview.html          # local preview, no server
+python3 -m http.server -d _site  # or serve the real split page
+```
+
+`_site/` is gitignored and never committed. It is host-agnostic — the page
+fetches `all-apps.json` and `config.json` from its own directory and draws
+every image from `media/` beside it — so the identical build serves both the
+GitHub Pages and the Cloudflare Pages deployment. Serving its own images is
+what lets a CDN in front of the site (Cloudflare Polish, for one) cache and
+convert them; `media/` mirrors the repository layout (with a `.webp`
+extension where an image was re-encoded), so a changed image is the same URL
+with revalidation.
+
 ## Generating News Images
 
 Each app has a shared `news.png` ("NEW UPDATE" — icon, name, tagline)
@@ -125,6 +202,40 @@ requirements.txt`; Pillow is the only image dependency — no external
 rasterizer). The rendered `apps/<AppName>/images/news.png` stays in the working
 tree — the URL in `config.toml` `[news] image_url` already points at it. Do
 not auto-commit it.
+
+### The tagline
+
+`tagline` is the **abbreviated form of `subtitle` drawn on the image**, not a
+copy of it: the app name is the image's headline, so the tagline carries the
+part of the subtitle the name does not already say.
+
+- It still has to answer "what is this app". A name that does not spell out
+  the category ("PSX3IOS", "MeloX") needs the category right under it
+  ("PlayStation 3 emulator"); a name that spells it out ("Aidoku") can drop
+  it. Only words the name already carries are redundant ("iOS/iPadOS" under an
+  `…iOS` name) — being informative beats being terse.
+- Language: the app's own language, same as `subtitle`.
+- Length: full size (72px) on **at most two lines**. When it does not fit,
+  drop words — `fit_tagline()` would otherwise shrink the text silently, and
+  that one image would just look smaller than every other app's.
+- Differing from `subtitle` is fine and expected; *contradicting* it is the
+  bug.
+- An explicit `\n` in the value chooses the break point, which is how a
+  two-line tagline avoids a bad wrap ("Open-source\nmanga reader", not
+  "Open-source manga / reader").
+- Re-read it whenever `subtitle` / `description` changes, so the two never
+  drift apart.
+
+Measure it — nothing is rendered and no file is written; a `font` below 72 or
+more than two lines means the tagline is too long:
+
+```bash
+PYTHONPATH=tools .venv/bin/python3 -c "
+import tomllib, render_news as R
+n = tomllib.load(open('apps/<AppName>/news.toml','rb'))
+f = R.fit_name_font(n['name']); nb = R.ICON_Y + R.cap_top_em('bold')*f + 0.25*f
+print(R.fit_tagline(n.get('tagline',''), R.BADGE_BOTTOM - nb - R.GAP_DESC))"
+```
 
 ## Icon Color Sampling (PIL)
 
@@ -195,6 +306,79 @@ PNGs/JPEGs are copied as-is.
 in `Assets.car`, unreadable here (LZFSE `bvx2`, no PNG data inside). The tool
 warns below 512px: treat that as a last resort, and prefer the project's own
 artwork wherever it exists.
+
+## Screenshots
+
+Screenshots live in `apps/<AppName>/images/` and are listed by URL in
+`[app] screenshots` in `config.toml`.
+
+When the user supplies screenshots by hand (attached images, a folder, an
+unpacked zip), **use them exactly as given**: copy them into
+`apps/<AppName>/images/` with their original filenames and formats (`.png`,
+`.jpg`/`.jpeg`, …), and point each `screenshots` entry at the real file. Never
+rename them to `home.png`/`detail.png` and never re-encode or convert the
+format — AltStore loads whatever URL it is given, and the repo already ships
+plenty of `.jpg`/`.jpeg` shots. The user's set is the set; don't keep hunting
+the repo for alternatives.
+
+`news.png` is the one file in that folder that is generated — leave it to
+`tools/render_news.py` (see [Generating News
+Images](#generating-news-images)).
+
+## README Entries
+
+Every app appears in both `README.md` and `README_CN.md` under **Available
+Apps**, in the same order. The heading (icon + name) is identical in both
+files; only the one-line description differs.
+
+**The rule is asymmetric — translate into Chinese, never into English.**
+`README.md` keeps each app in its **own** language; `README_CN.md` is
+**always Chinese**.
+
+- An app whose upstream README is primarily Chinese keeps its Chinese
+  one-line description in `README.md`. Do not invent an English blurb for a
+  Chinese-only project: its audience reads Chinese, and its UI, docs and
+  release notes stay Chinese whatever the blurb says.
+- An English app gets an English blurb in `README.md` and its **Chinese
+  translation** in `README_CN.md` — `README_CN.md` never carries an English
+  description.
+
+`config.toml` (`subtitle`, `description`) follows the same rule as
+`README.md`: the app's own language, not the language of the page it is
+written into. Those fields feed `apps.json`, and an AltStore source carries
+**one** language per app — `localizedDescription` is a plain string, with no
+per-locale variants — so there is no bilingual source to publish. The Chinese
+text a Chinese reader sees on the site lives in `site/i18n/zh.json` instead
+(see [GitHub Pages Site](#github-pages-site)).
+
+### Three texts, one anchor
+
+Every app carries three descriptions. They are not duplicates, and they are
+not free-form either — `config.toml` `[app] subtitle` is the **anchor**:
+
+| text | shown where | rule |
+|---|---|---|
+| `subtitle` | site card, "recently updated" rail, sheet header, the app list inside SideStore | one short sentence, no trailing period |
+| README line | `README.md` / `README_CN.md` only | **starts with the subtitle**, then may add one concrete detail after ` — ` |
+| `description` | sheet → "About" | the upstream paragraph; longer, may list requirements |
+
+So a README line is `subtitle` plus at most one clause of real information
+(a requirement, a platform, a headline feature) taken from the project's own
+README — never a rewording of the same sentence. `site/i18n/zh.json` mirrors
+`subtitle` and `description`, each a translation of its field, so the English
+and Chinese cards read as the same sentence.
+
+When the subtitle itself is wrong or stale, fix it in `config.toml` and
+regenerate — the README line, the Chinese overlay and the site all follow it.
+
+`news.toml`'s `tagline` is a fourth string, and deliberately not the subtitle:
+it is drawn inside `images/news.png` and must fit two full-size lines there, so
+abbreviations ("Sideload apps with AltServer" for "Sideload non-notarized apps
+with AltServer") are the point, not drift. See [The
+tagline](#the-tagline).
+
+⚠️ Use `align="top"` on the icon — `align="center"` renders ~7px low on
+GitHub.
 
 ## Adding a New App
 
